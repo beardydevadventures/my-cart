@@ -9,7 +9,7 @@
  <div class="mycart-plugin">	
 	<?php include('includes/nav.inc.php'); ?>
 	<div class="mycart-plugin-content mycart-plugin-clearfix">
-		<h2>Cart</h2>
+		<h2>Contents of MyCart</h2>
 		<?php
 			//Gets information from each item from database $a is defined in cart.inc.php
 			if(count($a) > 0)
