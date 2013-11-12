@@ -443,6 +443,93 @@ body.mce-content-body {
 }
 
 /* ==================================================
+						cms - customization
+===================================================== */
+.mycart-button {
+	-webkit-appearance: none;
+	appearance: none;
+	color: #333;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.4;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	background-image: none;
+	text-transform: none;
+	text-decoration: none;
+}
+
+.mycart-button.lg {
+	width: 150px;
+	height: 40px;
+	margin-left: 20px;
+}
+
+.mycart-button:hover {
+	background-color: #ccc;
+}
+
+.mycart-button:active,
+.mycart-button:focus {
+	background-color: #aaa;
+}
+
+.panel-border {
+	border-top: 1px solid #ddd;
+}
+
+.mask-color-1 {
+	background-color: #ADADAD;
+	width: 95px;
+	height: 72px;
+	display: inline-block;
+}
+
+.mask-color-2 {
+	background-color: #D4D4D4;
+	margin-left: -5px;
+	width: 95px;
+	height: 72px;
+	display: inline-block;
+}
+
+.customize .row {
+	margin-bottom: 15px;
+}
+
+.customize .row .col-lg-3 {
+	line-height: 34px;
+}
+
+.mycart .row .col-lg-6 {
+	line-height: 1.6;
+}
+
+.mycart-heading,
+.mycart-body {
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+.center {
+	text-align: center;
+}
+
+
+/* ==================================================
 						preview 
 ===================================================== */
 .iframe-container {

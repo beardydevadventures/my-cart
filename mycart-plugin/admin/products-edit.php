@@ -169,9 +169,9 @@
 					<div class="form-group">
 						<label for="inputOption1" class="col-lg-2 control-label">Option</label>
 						<div class="col-lg-10">
-							<input type="hidden" name="inputId[]" value="<?php echo($var['id']); ?>">
 							<input type="text" class="form-control" id="inputOption" placeholder="Color, size, type etc" name="inputOption[]" value="<?php echo($var['description']);?>"/>
 							<input type="text" class="form-control" id="inputQuantity" placeholder="Quantity" name="inputQuantity[]" value="<?php echo($var['quantity']);?>"/>
+							<input type="hidden" name="inputId[]" value="<?php echo($var['id']); ?>">
 						</div>
 					</div>
 					<?php 

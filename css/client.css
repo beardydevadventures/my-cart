@@ -99,7 +99,12 @@ div.wrapper
 	box-shadow: 0 0 100px #ccc;
 }
 
-div.cart-container, div.header h1
+div.cart-container {
+	display: inline-block;
+	margin: 15px 0;
+}
+
+div.header h1
 {
 	display: inline-block;
 }
@@ -107,6 +112,30 @@ div.cart-container, div.header h1
 div.cart-container
 {
 	float: right;
+}
+
+@media only screen and (max-width: 700px){
+	div.footer div
+	{
+		width: 100%;
+	}
+	
+	div.footer span
+	{
+		font-size: 5em;
+	}
+
+	nav ul li
+	{
+		width: 48%;
+	}
+}
+
+@media only screen and (max-width: 480px){
+	div.footer span
+	{
+		font-size: 3em;
+	}
 }
 
 /************************* END CLIENT STYLING ******************************/

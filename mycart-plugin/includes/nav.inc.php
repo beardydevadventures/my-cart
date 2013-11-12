@@ -34,7 +34,7 @@
 			else
 			{
 				// else create link	
-				echo("<a href='products.php?id=". $row['id'] . "'>" . ucfirst($row['description']) ."</a>");
+				echo("<a class='mycart-plugin-page-link' href='mycart-plugin/mycart-plugin-store.php?id=". $row['id'] . "'>" . ucfirst($row['description']) ."</a>");
 			}
 			
 			echo("<ul>");

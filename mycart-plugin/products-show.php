@@ -1,14 +1,5 @@
-<?php
-	include('includes/header.inc.php');
-?>
-<!--
-	SHOP DIV
- -->
-<div class="mycart-plugin">
 	<?php 
-	
 	//gets product id from header, if no id then sends user back to the view products page
-	
 	$id = isset($_GET['id']) ? $_GET['id'] : null;
 	
 	if(!$id)
@@ -100,12 +91,4 @@
 	<?php 
 	}
 	?>
-</div><!-- mycart plugin -->
-<!--
-
-	END OF SHOP DIV
-	
- -->
-<?php
-	include('includes/footer.inc.php');
-?>
+	<script src="mycart-plugin/js/store.js"></script>

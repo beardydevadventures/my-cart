@@ -79,7 +79,92 @@ $(function(){
 	});
 
 	$("#removeOption").on("click",function(){
-		
 	});
 	
+	
+	var primaryColor;
+	$('.primary-color').colorpicker().on('changeColor', function(e){
+		primaryColor = e.color.toHex();
+		$(".mask-color-1").css("background-color", primaryColor);
+	});
+
+	var secondaryColor;
+	$('.secondary-color').colorpicker().on('changeColor', function(e){
+		secondaryColor = e.color.toHex();
+		$(".mask-color-2").css("background-color", secondaryColor);
+	});
+
+	var buttonColor = "#F0F0F0";
+	$('.button-color').colorpicker().on('changeColor', function(e){
+		buttonColor = e.color.toHex();
+		$(".mycart-button").css("background-color", buttonColor);
+	});
+
+	var buttonHoverColor = '#cccccc'; 
+	$('.button-hover-color').colorpicker().on('changeColor', function(e){
+		buttonHoverColor = e.color.toHex();
+		$(".mycart-button").on("mouseover", function(){
+			$(this).css("background-color", buttonHoverColor);
+		}).mouseout(function(){
+			$(this).css("background-color", buttonColor);
+		});
+	});
+
+	var buttonActiveColor = "#aaaaaa";
+	$('.button-active-color').colorpicker().on('changeColor', function(e){
+		buttonActiveColor = e.color.toHex();
+		$(".mycart-button").on("mousedown", function(){
+			$(this).css("background-color", buttonActiveColor);
+		}).mouseup(function(){
+			$(this).css("background-color", buttonColor);
+		});
+	});
+
+	var buttonFontColor = "#333333";
+	$('.button-font-color').colorpicker().on('changeColor', function(e){
+		buttonFontColor = e.color.toHex();
+		$(".mycart-button").css("color", buttonFontColor);
+	});
+
+	var buttonFontHoverColor = "#333333";
+	$('.button-font-hover-color').colorpicker().on('changeColor', function(e){
+		buttonFontHoverColor = e.color.toHex();
+		$(".mycart-button").on("mouseover", function(){
+			$(this).css("color", buttonFontHoverColor);
+		}).mouseout(function(){
+			$(this).css("color", buttonFontColor);
+		});
+	});
+
+	var buttonFontActiveColor = "#333333";
+	$('.button-font-active-color').colorpicker().on('changeColor', function(e){
+		buttonFontActiveColor = e.color.toHex();
+		$(".mycart-button").on("mousedown", function(){
+			$(this).css("color", buttonFontActiveColor);
+		}).mouseup(function(){
+			$(this).css("color", buttonFontColor);
+		});
+	});
+
+	var headingColor = "#333333";
+	$('.heading-color').colorpicker().on('changeColor', function(e){
+		headingColor = e.color.toHex();
+		$(".mycart-heading").css("color", headingColor);
+	});
+
+	var bodyColor = "#333333";
+	$('.body-color').colorpicker().on('changeColor', function(e){
+		bodyColor = e.color.toHex();
+		$(".mycart-body").css("color", bodyColor);
+	});
+
+	$('.heading-font').on("change", function(){
+		var headingFont = $(this).val();
+		$('.mycart-heading').css('font-family', headingFont);
+	});
+
+	$('.body-font').on("change", function(){
+		var bodyFont = $(this).val();
+		$('.mycart-body').css('font-family', bodyFont);
+	});
 });

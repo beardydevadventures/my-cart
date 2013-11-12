@@ -1,0 +1,9 @@
+.mycart-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.mycart-wrapper .mycart-header {
+	background-color: #ff6900;
+	color: #ffffff;
+}

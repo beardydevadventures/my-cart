@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	// hide the shipping info
-	$(".mycart-plugin .mycart-plugin-toggle-hide").hide();
+	$(".mycart-plugin .mycart-plugin-toggle-hide").hide(0);
 
 	var checkoutCheckbox = true;
 	$(".mycart-plugin .mycart-plugin-toggle-checkbox").on('click', function(){
@@ -35,9 +35,9 @@ $(document).ready(function() {
 	});
 	
 	// Navigation
-	$(".mycart-plugin-nav > ul > li > a + ul").hide();
+	$(".mycart-plugin .mycart-plugin-nav > ul > li > a + ul").hide(0);
 	var myThis;
-	$(".mycart-plugin-nav > ul > li > a").click(function(){
+	$(".mycart-plugin .mycart-plugin-nav > ul > li > a").click(function(){
 		// test to see if mobile or desktop, slide for mobile, toggle hide for desktop
 		var windowWidth = $(window).width();
 		if(windowWidth > 700)
@@ -69,4 +69,12 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	// go to corresponding link
+	function goToLink() {
+		window.location = $(this).find("a").attr("href");
+	}
+
+	// My Account -- when you click on the table row, take to the corresponding order page
+	$(".mycart-plugin .mycart-plugin-row-link").click(goToLink);
 });

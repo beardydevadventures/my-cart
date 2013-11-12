@@ -4,7 +4,7 @@
 	<div class="mycart-plugin">
 		<?php include('includes/nav.inc.php'); ?>
 		<div class="mycart-plugin-content">
-			<h2>Checkout - Step 1 of 2</h3>
+			<h2>Checkout - Step 1 of 2</h2>
 			<div class="mycart-plugin-checkout-login">
 				<div class="mycart-plugin-checkout">
 					<h3>Already have an account?</h3>
@@ -16,7 +16,7 @@
 						<div class="mycart-plugin-form-group">
 							<label>Password</label>
 							<input type="password" name="pword" placeholder="Password" required/>
-							<a class="mycart-plugin-pull-right" role="link" href="#">Forgot for your password?</a>
+							<a class="mycart-plugin-pull-right mycart-plugin-link" href="#">Forgot for your password?</a>
 						</div>
 						<div class="mycart-plugin-form-group">
 							<button class="mycart-plugin-btn-success" type="submit">Login and continue</button>
@@ -68,7 +68,7 @@
 						<input type="text" name="addrs"/>
 					</div>
 					<div class="mycart-plugin-form-group">
-						<label>Suburb/City</label>
+						<label>Suburb/&#8203City</label>
 						<input type="text" name="city" required/>
 					</div>
 					<div class="mycart-plugin-form-group">
@@ -78,15 +78,15 @@
 						</select>
 					</div>
 					<div class="mycart-plugin-form-group">
-						<label>State/Province</label>
+						<label>State/&#8203Province</label>
 						<input type="text" name="state" required/>
 					</div>
 					<div class="mycart-plugin-form-group">
-						<label>Postal/Zip Code</label>
+						<label>Postal/&#8203Zip Code</label>
 						<input type="text" name="zip" required/>
 					</div>
 					<div class="mycart-plugin-form-group">
-						<label></label>
+						<label class="mycart-plugin-form-hide"></label>
 						<div class="mycart-plugin-form-input"><input type="checkbox" class="mycart-plugin-toggle-checkbox" name="checkbox" checked/> Ship item(s) to my billing address</div>
 					</div>
 				</div><!-- end checkout-billing -->
@@ -104,7 +104,7 @@
 							<input type="text" name="addrs2"/>
 						</div>
 						<div class="mycart-plugin-form-group">
-							<label>Suburb/City</label>
+							<label>Suburb/&#8203City</label>
 							<input type="text" name="city2"/>
 						</div>
 						<div class="mycart-plugin-form-group">
@@ -114,11 +114,11 @@
 							</select>
 						</div>
 						<div class="mycart-plugin-form-group">
-							<label>State/Province</label>
+							<label>State/&#8203Province</label>
 							<input type="text" name="state2"/>
 						</div>
 						<div class="mycart-plugin-form-group">
-							<label>Postal/Zip Code</label>
+							<label>Postal/&#8203Zip Code</label>
 							<input type="text" name="zip2"/>
 						</div>
 					</div><!-- end toggle-content -->
