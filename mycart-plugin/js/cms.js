@@ -1,18 +1,33 @@
 $(function(){
 	// Product Page -- initiate removeProduct Modal
 	$(".products .remove").click(function(){
+		//$('.prodLink').preventDefault();
 		$("#removeProductModal").modal("show");
-		return false;
-	})
+		
+		var pname = $(this).attr('productName');
+		var pid = $(this).attr('productId');
+		$("#prodremName").html(pname);
+		$('#btn-remove').attr('prodremId', pid);
+	});
 
 	// Product Page -- remove the product
 	$("#btn-remove").click(function(){
 		$("#removeProductModal").modal("hide");
+		var remurl = "../functions/delete.function.php?id=" + $(this).attr('prodremId');
+		console.log(remurl);
+		window.location = remurl;
 	});
 
 	// go to corresponding link
-	function goToLink() {
-		window.location = $(this).find("a").attr("href");
+	function goToLink(e) {
+		if($(this).hasAttr('productName'))
+		{
+			e.preventDefault();
+		}
+		else
+		{
+			window.location = $(this).find("a").attr("href");
+		}
 	}
 	
 	// Order Page -- when you click on the table row, take the corresponding page

@@ -63,8 +63,7 @@
 						<td>6 <span class="label label-warning" style="opacity: .7;">Low</span></td>
 						<td>$<?php echo($product['cost']);?></td>
 						<td>$<?php echo($product['cost']);?></td>
-						<td><button class="btn btn-danger remove"><i class="icon-remove"></i></button></td>
-						<!-- <a href="../functions/delete.function.php?id=<?php echo($product['id']);?>"><td><button class="btn btn-danger "><i class="icon-remove"></i></button></td></a> -->
+						<td><button class="btn btn-danger remove" productId="<?php echo($product['id']);?>" productName="<?php echo($product['name']);?>"><i class="icon-remove"></i></button></td>
 					</tr>				
 				<?php 
 				}
@@ -81,7 +80,7 @@
 							<h4 class="modal-title">Remove Product</h4>
 						</div>
 						<div class="modal-body">
-							<p>Are you sure you want to remove <b>Blaq Shirt</b> from your store?</p>
+							<p>Are you sure you want to remove <b id="prodremName">Blaq Shirt</b> from your store?</p>
 						</div>
 						<div class="modal-footer">
 							<button id="btn-remove" class="btn btn-lg btn-success"><i class="icon-check"></i> Remove</button>
