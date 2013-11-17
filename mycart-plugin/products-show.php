@@ -39,7 +39,7 @@
 	?>
 		<div class="mycart-plugin-content mycart-plugin-clearfix">
 			<div class="mycart-plugin-product-left">	
-				<a class="fancybox-effects-b" href="<?php echo($row['image']);?>" data-fancybox-group="gallery" title="<?php echo($row['name']);?>"><img src="<?php echo($row['image']);?>" alt="" style="max-height: 350px;"/></a>
+				<a class="fancybox-effects-b" href="mycart-plugin/<?php echo($row['image']);?>" data-fancybox-group="gallery" title="<?php echo($row['name']);?>"><img src="mycart-plugin/<?php echo($row['image']);?>" alt="" style="max-height: 350px;"/></a>
 			</div>
 			<div class="mycart-plugin-product-right">
 				<form action='products-show.php' method='get'>

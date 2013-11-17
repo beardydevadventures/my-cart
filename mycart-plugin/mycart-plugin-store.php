@@ -37,7 +37,7 @@ if(!$id)
 		?>
 			<div class="mycart-plugin-product-grid">
 				<a class="mycart-plugin-page-link" href="mycart-plugin/products-show.php?id=<?php echo($row['id']);?>">
-					<img src="<?php echo($row['image']);?>"></img>
+					<img src="mycart-plugin/<?php echo($row['image']);?>"></img>
 					<p><?php echo($row['name']);?></p>
 				</a>
 					<p>$<?php echo($row['cost']);?></p>
