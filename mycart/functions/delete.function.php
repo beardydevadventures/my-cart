@@ -7,5 +7,5 @@ $sth = $dbh->query("UPDATE product
 		SET archive = '0'
 		WHERE id = '$id'");
 
-header("Location: ../admin/products-edit.php?id=$id");
+header("Location: ../admin/products.php");
 ?>
