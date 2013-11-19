@@ -1,4 +1,8 @@
-<?php include('includes/cart.inc.php'); ?>
+
+<?php 
+	include('includes/db.inc.php');
+	include('includes/cart.inc.php');
+?>
 <div class="mycart-plugin-cart-links">
 	<?php 
 	 if(!isset($_SESSION['uid']))

@@ -98,11 +98,13 @@ $(function(){
 	$('.button-color').colorpicker().on('changeColor', function(e){
 		buttonColor = e.color.toHex();
 		$(".mycart-button").css("background-color", buttonColor);
+		$(".mycart-bc").css("background-color", buttonColor);
 	});
 
 	var buttonHoverColor = '#cccccc'; 
 	$('.button-hover-color').colorpicker().on('changeColor', function(e){
 		buttonHoverColor = e.color.toHex();
+		$(".mycart-bhc").css("background-color", buttonHoverColor);
 		$(".mycart-button").on("mouseover", function(){
 			$(this).css("background-color", buttonHoverColor);
 		}).mouseout(function(){
@@ -113,6 +115,7 @@ $(function(){
 	var buttonActiveColor = "#aaaaaa";
 	$('.button-active-color').colorpicker().on('changeColor', function(e){
 		buttonActiveColor = e.color.toHex();
+		$(".mycart-bac").css("background-color", buttonActiveColor);
 		$(".mycart-button").on("mousedown", function(){
 			$(this).css("background-color", buttonActiveColor);
 		}).mouseup(function(){
@@ -124,11 +127,13 @@ $(function(){
 	$('.button-font-color').colorpicker().on('changeColor', function(e){
 		buttonFontColor = e.color.toHex();
 		$(".mycart-button").css("color", buttonFontColor);
+		$(".mycart-bfc").css("background-color", buttonFontColor);
 	});
 
 	var buttonFontHoverColor = "#333333";
 	$('.button-font-hover-color').colorpicker().on('changeColor', function(e){
 		buttonFontHoverColor = e.color.toHex();
+		$(".mycart-bfhc").css("background-color", buttonFontHoverColor);
 		$(".mycart-button").on("mouseover", function(){
 			$(this).css("color", buttonFontHoverColor);
 		}).mouseout(function(){
@@ -139,6 +144,7 @@ $(function(){
 	var buttonFontActiveColor = "#333333";
 	$('.button-font-active-color').colorpicker().on('changeColor', function(e){
 		buttonFontActiveColor = e.color.toHex();
+		$(".mycart-bfac").css("background-color", buttonFontActiveColor);
 		$(".mycart-button").on("mousedown", function(){
 			$(this).css("color", buttonFontActiveColor);
 		}).mouseup(function(){
@@ -150,12 +156,14 @@ $(function(){
 	$('.heading-color').colorpicker().on('changeColor', function(e){
 		headingColor = e.color.toHex();
 		$(".mycart-heading").css("color", headingColor);
+		$(".mycart-thc").css("background-color", headingColor);
 	});
 
 	var bodyColor = "#333333";
 	$('.body-color').colorpicker().on('changeColor', function(e){
 		bodyColor = e.color.toHex();
 		$(".mycart-body").css("color", bodyColor);
+		$(".mycart-tbc").css("background-color", bodyColor);
 	});
 
 	$('.heading-font').on("change", function(){

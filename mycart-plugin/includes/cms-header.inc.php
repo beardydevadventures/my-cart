@@ -5,18 +5,19 @@
 	<title>My Cart | Admin</title>
 	<link rel="stylesheet" href="../css/bootstrap.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="../colorpicker/css/colorpicker.css">
 	<link rel="stylesheet" type="text/css" href="../css/cms.css"/>
 </head>
 <body>
 	<div class="pushy-footer-wrapper">
  	<div class="header-content">
 		<div class="wrapper clearfix">
-				<div class="clearfix">
-					<a class="header-logo" href="home.php"><img class="client-logo" src="../img/placeholder-logo.png" alt="Logo"/></a>
-					<div class="header-nav">
-						<a href="index.php" class="btn btn-default">Logout</a>
-					</div>
+			<div class="clearfix">
+				<a class="header-logo" href="home.php"><img class="client-logo" src="../img/placeholder-logo.png" alt="Logo"/></a>
+				<div class="header-nav">
+					<a href="index.php" class="btn btn-default">Logout</a>
 				</div>
+			</div>
 		</div><!-- end wrapper -->
 	</div><!-- end header-content -->
 	<div class="nav-content">

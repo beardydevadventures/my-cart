@@ -445,6 +445,7 @@ body.mce-content-body {
 /* ==================================================
 						cms - customization
 ===================================================== */
+
 .mycart-button {
 	-webkit-appearance: none;
 	appearance: none;
@@ -490,8 +491,46 @@ body.mce-content-body {
 	border-top: 1px solid #ddd;
 }
 
+.relative {
+	position: relative;
+}
+
+.preview {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 1px;
+	margin-right: 16px;
+	height: 32px;
+	width: 32px;
+	display: block;
+	border-top-right-radius: 3.5px;
+	border-bottom-right-radius: 3.5px;
+	border-left: 1px solid #ccc;
+}
+
+.mycart-thc,
+.mycart-tbc {
+	background-color: #ADADAD;
+}
+
+.mycart-bc,
+.mycart-bhc,
+.mycart-bac {
+	background-color: buttonface;
+}
+
+.mycart-bfc,
+.mycart-bfhc,
+.mycart-bfac {
+	background-color: buttonface;
+}
+
 .mask-color-1 {
 	background-color: #ADADAD;
+}
+
+.mask-color-1.demo {
 	width: 95px;
 	height: 72px;
 	display: inline-block;
@@ -499,6 +538,9 @@ body.mce-content-body {
 
 .mask-color-2 {
 	background-color: #D4D4D4;
+}
+
+.mask-color-2.demo {
 	margin-left: -5px;
 	width: 95px;
 	height: 72px;
