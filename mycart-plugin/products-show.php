@@ -9,6 +9,7 @@
 	else
 	{
 		//inputs mycart nav and gets db
+		// include('includes/cart.inc.php');
 		include('includes/db.inc.php');
 		include('includes/nav.inc.php');
 		
@@ -39,10 +40,10 @@
 	?>
 		<div class="mycart-plugin-content mycart-plugin-clearfix">
 			<div class="mycart-plugin-product-left">	
-				<a class="fancybox-effects-b" href="<?php echo($row['image']);?>" data-fancybox-group="gallery" title="<?php echo($row['name']);?>"><img src="<?php echo($row['image']);?>" alt="" style="max-height: 350px;"/></a>
+				<a class="fancybox-effects-b" href="mycart-plugin/<?php echo($row['image']);?>" data-fancybox-group="gallery" title="<?php echo($row['name']);?>"><img src="mycart-plugin/<?php echo($row['image']);?>" alt="" style="max-height: 350px;"/></a>
 			</div>
 			<div class="mycart-plugin-product-right">
-				<form action='products-show.php' method='get'>
+				<form class="mycart-plugin-form-submit" action='mycart-plugin/products-show.php' method='get'>
 					<h1><?php echo($row['name']);?></h1>
 					<h2>$<?php echo($row['cost']);?></h2>
 					<?php 
@@ -61,7 +62,7 @@
 					//}
 					?>
 					<div class="mycart-plugin-form-group">
-						<select name='vr'>
+						<select class="mycart-plugin-select-option" name='vr'>
 						<?php 
 						$opsth = $dbh->query("SELECT p.id, pv.productId, pv.description, pv.id AS Var
 								FROM product p, product_variation pv
@@ -91,4 +92,73 @@
 	<?php 
 	}
 	?>
-	<script src="mycart-plugin/js/store.js"></script>
+	<script type="text/javascript" src="mycart-plugin/js/store.js"></script>
+	<script>
+	function CallPage(e) {
+		e.preventDefault();
+		var data = e.data;
+		console.log(e.currentTarget.href);
+		$.ajax({
+			url: e.currentTarget.href,
+			type: data.method,
+			data: data.vars,
+			dataType: 'html',
+			success: function(data) {
+				$(".mycart-plugin-store").html(data);
+			}
+		});
+	}
+
+	// function CallForm(e) {
+	// 	e.preventDefault();
+	// 	var data = e.data;
+	// 	// console.log(e.currentTarget.href);
+	// 	$.ajax({
+	// 		url: 'mycart-plugin/products-show.php',
+	// 		type: data.method,
+	// 		data: data.vars,
+	// 		dataType: 'html',
+	// 		success: function(data) {
+	// 			$(".mycart-plugin-store").html(data);
+	// 		}
+	// 	});
+	// }
+
+	// $(".mycart-plugin .mycart-plugin-page-link").on('click', {
+	// 	vars: { }, // leave blank if empty
+	// 	method: 'post'
+	// }, CallPage);
+
+	// $(".mycart-plugin .mycart-plugin-form-submit").on('submit', {
+	// 	vars: { $(this).serialize() },
+	// 	method: 'post'
+	// }, CallForm);
+
+
+	$(".mycart-plugin .mycart-plugin-form-submit").on('submit', function(e){
+		e.preventDefault();
+			e.preventDefault();
+		var data = e.data;
+		// console.log(e.currentTarget.href);
+		$.ajax({
+			url: 'mycart-plugin/products-show.php',
+			type: data.method,
+			data: data.vars,
+			dataType: 'html',
+			success: function(data) {
+				$(".mycart-plugin-store").html(data);
+			}
+		});
+	});
+
+	// $(".mycart-plugin .mycart-plugin-form-submit").on('submit', {
+	// 	vars: $(this).serialize(),
+	// 	method: 'get'
+	// }, CallForm);
+
+	// $(".mycart-plugin .mycart-plugin-form-submit").on('submit', {
+	// 	vars: $(this).serialize(),
+	// 	method: 'post'
+	// }, CallForm);	
+
+	</script>

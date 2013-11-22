@@ -1,10 +1,14 @@
 <?php 
 	include('includes/db.inc.php');
 	include('includes/nav.inc.php');
+	include('includes/cart.inc.php');
 ?>	
 <div class="mycart-plugin-content mycart-plugin-clearfix">
 	<h2>Cart</h2>
 	<?php
+		//cart id
+		$a = $_SESSION['cart'];
+
 		//Gets information from each item from database $a is defined in cart.inc.php
 		if(count($a) > 0)
 		{

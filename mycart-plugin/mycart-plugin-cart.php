@@ -1,4 +1,8 @@
-<?php include('includes/cart.inc.php'); ?>
+
+<?php 
+	include('includes/db.inc.php');
+	include('includes/cart.inc.php');
+?>
 <div class="mycart-plugin-cart-links">
 	<?php 
 	 if(!isset($_SESSION['uid']))
@@ -25,7 +29,7 @@
 </div>
 <div class="mycart-plugin-cart-items">
 	<a class="mycart-plugin-page-link" href="mycart-plugin/cart.php" title="View my cart">
-		<img src="img/logo_vert.svg"/>My cart <span><?php
+		<img src="mycart-plugin/img/logo_vert.svg"/>My cart <span><?php
 			echo((($_SESSION["total"]) != 0) ? "<b>&dollar;" . $_SESSION['total'] . "</b> " : "");
 			echo("(");
 			echo((($cartItems) !== 0)? ((($cartItems) == 1)? $cartItems . ' item' : $cartItems . ' items') : 'empty');
