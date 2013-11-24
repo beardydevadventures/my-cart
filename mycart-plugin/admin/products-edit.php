@@ -167,7 +167,18 @@
 					{
 					?>
 					<div class="form-group">
-						<label for="inputOption1" class="col-lg-2 control-label">Option</label>
+						<label for="inputOption1" class="col-lg-2 control-label">Option
+						<?php 
+						if($var['quantity'] <= 0 )
+						{
+							echo( '<span class="label label-danger" style="opacity: .7;">Out of Stock</span>' );
+						}
+						elseif($var['quantity'] > 0 && $var['quantity'] <= 5)
+						{
+							echo( '<span class="label label-warning" style="opacity: .7;">Low</span>' );
+						}
+						?>
+						</label>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" id="inputOption" placeholder="Color, size, type etc" name="inputOption[]" value="<?php echo($var['description']);?>"/>
 							<input type="text" class="form-control" id="inputQuantity" placeholder="Quantity" name="inputQuantity[]" value="<?php echo($var['quantity']);?>"/>
