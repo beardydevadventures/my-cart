@@ -17,7 +17,8 @@ if($id == "")
 	//create new entry in product table and get id
 	$sth = $dbh->query("INSERT INTO product
 			SET name = '$pname',
-			description = '$pdesc'");
+			description = '$pdesc',
+			archive = '1'");
 
 	$id = $dbh->lastInsertId();
 	
@@ -56,7 +57,7 @@ if($pfile['error'] == 0)
 	
 	$ext = pathinfo($fn, PATHINFO_EXTENSION);
 	
-	$fn= "$fn.$ext";
+	$fn= "$fn";
 	
 	$path = "../img/$fn";
 	
@@ -106,7 +107,7 @@ for($i = 0; $i < count($popt); $i++)
 	}
 }
 
-header("Location: ../admin/products-edit.php?id=$id");
+header("Location: ../admin/products.php");
 ?>
 
 

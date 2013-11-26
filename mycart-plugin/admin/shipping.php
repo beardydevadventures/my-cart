@@ -6,13 +6,13 @@
 					<h2>Shipping Rates</h2>
 				</div>
 			</div><!-- end page-heading clear-fix -->
-			<h4 class="inline">View Shipping Rates</h4><a href="shipping-edit.php"><i class="icon-edit"></i> Edit</a>
+			<h4 class="inline">View Shipping Rates</h4><a href="shipping-edit.php"><i class="fa fa-pencil-square-o"></i> Edit</a>
 			<table class="shipping table table-hover">
 				<thead>
 					<tr>
 						<td>Australia</td>
 						<td></td>
-						<td><i class="icon-globe"></i> International</td>
+						<td><i class="fa fa-globe"></i> International</td>
 						<td></td>
 					</tr>
 				</thead>

@@ -7,14 +7,14 @@
 				</div>
 				<div class="page-nav">
 					<div class="page-nav-1">
-						<a href="products-edit.php" class="btn btn-success"><i class="icon-plus"></i> Create New Product</a>
+						<a href="products-edit.php" class="btn btn-success"><i class="fa fa-plus"></i> Create New Product</a>
 					</div><!--  end page-nav-1 -->
 					<div class="page-nav-2">
 						<div class="input-group">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button"><i class="icon-search"></i></button>
+							<input type="search" class="form-control" placeholder="Search Orders"/>
+							<span class="input-group-addon">
+								<i class="fa fa-search"></i>
 							</span>
-							<input type="search" class="form-control" placeholder="Search Products"/>
 						</div><!-- end input-group -->
 					</div><!-- end page-nav-2 -->
 				</div><!-- end page-nav -->
@@ -33,6 +33,8 @@
 				</thead>
 				<?php 
 				require('../includes/db.inc.php');
+				
+				//gets the products as well as its most recent price
 				$dateTime = date("Y-m-d H:i:s");
 				
 				$sth = $dbh->query("SELECT id, name, cost, image, dateTime
@@ -54,17 +56,43 @@
 				?>
 				<tbody>
 				<?php 
+				//echoes each prdocut onto the page
 				while($product = $sth->fetch() )
 				{
 				?>
 					<tr class="row-link">
 						<td><img src="../<?php echo($product['image']);?>" height="50" width="40"/></td>
 						<td><a href="products-edit.php?id=<?php echo($product['id']);?>"><?php echo($product['name']);?></a></td>
-						<td>6 <span class="label label-warning" style="opacity: .7;">Low</span></td>
+						<?php
+						//gets the lowest val of products 
+						$prodId = $product['id'];
+						
+						$vth = $dbh->query("SELECT quantity
+										FROM product_variation
+										WHERE productId = '$prodId'
+										ORDER BY quantity ASC");
+
+						$vth->setFetchMode(PDO::FETCH_ASSOC);
+						
+						$varAm = $vth->fetch();
+						
+						if($varAm['quantity'] <= 0 )
+						{
+							echo( '<td><span class="label label-danger" style="opacity: .7;">Out of Stock</span></td>' );
+						}
+						elseif($varAm['quantity'] > 0 && $varAm['quantity'] <= 5)
+						{
+							echo( '<td><span class="label label-warning" style="opacity: .7;">Low</span></td>' );
+						}
+						elseif($varAm['quantity'] > 5 )
+						{
+							echo( '<td><span class="label label-success" style="opacity: .7;">In Stock</span></td>' );
+						}
+						
+						?>
 						<td>$<?php echo($product['cost']);?></td>
 						<td>$<?php echo($product['cost']);?></td>
-						<td><button class="btn btn-danger remove"><i class="icon-remove"></i></button></td>
-						<!-- <a href="../functions/delete.function.php?id=<?php echo($product['id']);?>"><td><button class="btn btn-danger "><i class="icon-remove"></i></button></td></a> -->
+						<td><button class="btn btn-danger remove" productId="<?php echo($product['id']);?>" productName="<?php echo($product['name']);?>"><i class="fa fa-times"></i></button></td>
 					</tr>				
 				<?php 
 				}
@@ -77,15 +105,15 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-cross"></i></button>
 							<h4 class="modal-title">Remove Product</h4>
 						</div>
 						<div class="modal-body">
-							<p>Are you sure you want to remove <b>Blaq Shirt</b> from your store?</p>
+							<p>Are you sure you want to remove <b id="prodremName">Blaq Shirt</b> from your store?</p>
 						</div>
 						<div class="modal-footer">
-							<button id="btn-remove" class="btn btn-lg btn-success"><i class="icon-check"></i> Remove</button>
-							<button class="btn btn-lg btn-default" data-dismiss="modal"><i class="icon-minus-sign"></i> Cancel</button>
+							<button id="btn-remove" class="btn btn-lg btn-success"><i class="fa fa-trash-o"></i> Remove</button>
+							<button class="btn btn-lg btn-default" data-dismiss="modal">Cancel</button>
 						</div>
 					</div><!-- end modal-content -->
 				</div><!-- end modal-dialog -->

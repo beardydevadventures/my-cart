@@ -15,10 +15,10 @@
 					</div>
 					<div class="page-nav-2">
 						<div class="input-group">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button"><i class="icon-search"></i></button>
-							</span>
 							<input type="search" class="form-control" placeholder="Search Orders"/>
+							<span class="input-group-addon">
+								<i class="fa fa-search"></i>
+							</span>
 						</div><!-- end input-group -->
 					</div>
 				</div><!-- end page-nav -->

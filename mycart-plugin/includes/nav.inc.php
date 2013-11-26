@@ -1,10 +1,10 @@
-<div class="mycart-plugin-nav mycart-plugin-clearfix">
+<div class="mycart-plugin-nav mycart-plugin-clearfix" style="background-color: <?php echo($colArray['primary-color']); ?> !important;">
 <?php  
 	echo("<ul class='clearfix'>");
 
-	GetCategory(1, $dbh);
+	GetCategory(1, $dbh, $colArray);
 	
-	function GetCategory($parentID, $db)
+	function GetCategory($parentID, $db, $col)
 	{
 		
 		$sth = $db->query("SELECT c.id, c.description
@@ -29,7 +29,7 @@
 			if($result['NumChilds'] > 0)
 			{
 				// if ID has children, create arrow
-				echo("<a>" . ucfirst($row['description']) ." <i class='fa fa-chevron-down'></i></a>");
+				echo("<a style='font-family: " . $col['heading-font'] . "!important;'>" . ucfirst($row['description']) . " <i class='fa fa-chevron-down'></i></a>");
 			}
 			else
 			{
@@ -37,8 +37,8 @@
 				echo("<a class='mycart-plugin-page-link' href='mycart-plugin/mycart-plugin-store.php?id=". $row['id'] . "'>" . ucfirst($row['description']) ."</a>");
 			}
 			
-			echo("<ul>");
-			GetCategory($row['id'], $db);
+			echo("<ul style='background-color: " . $col['secondary-color'] . "!important;'>");
+			GetCategory($row['id'], $db, $col);
 			echo("</ul>");
 			echo("</li>");
 		}	

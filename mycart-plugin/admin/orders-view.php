@@ -11,7 +11,7 @@
 					<div class="page-nav-2">
 						<div class="input-group">
 							<span class="input-group-btn">
-								<button class="btn btn-default" type="button"><i class="icon-search"></i></button>
+								<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
 							</span>
 							<input type="search" class="form-control" placeholder="Search Orders"/>
 						</div><!-- end input-group -->
@@ -135,7 +135,7 @@
 			<div class="panel panel-danger pull-left dispatch-notice" style="margin-left: 20px;">
 				<div class="panel-heading">Dispatch Order</div>
 				<div class="panel-body min-height">
-					<a class="btn btn-danger" data-toggle="modal" href="#dispatchOrderModal"><i class="icon-exclamation"></i> Dispatch</a>
+					<a class="btn btn-danger" data-toggle="modal" href="#dispatchOrderModal"><i class="fa fa-exclamation"></i> Dispatch</a>
 				</div>
 			</div>
 			<?php 
@@ -146,7 +146,7 @@
 			<div class="panel panel-success pull-left dispatch-success" style="margin-left: 20px;">
 				<div class="panel-heading">Order Dispatched</div>
 				<div class="panel-body min-height">
-					<button class="btn btn-success disabled"><i class="icon-ok"></i> Dispatched</button><br />
+					<button class="btn btn-success disabled"><i class="fa fa-check"></i> Dispatched</button><br />
 					<span class="label label-success text-center"><?php echo(date("d F, Y", strtotime($oItem['dateTimeSent'])));?></span>
 				</div>
 			</div>
@@ -160,7 +160,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
 							<h4 class="modal-title">Dispatch Order #<?php echo($oItem['id']);?></h4>
 						</div>
 						<div class="modal-body">
@@ -168,8 +168,8 @@
 							<p>This will email the customer telling them their package has been shipped</p>
 						</div>
 						<div class="modal-footer">
-							<a href="../functions/dispatch.function.php?id=<?php echo($oItem['id']);?>"><button id="btn-dispatch" class="btn btn-lg btn-success"><i class="icon-check"></i> Dispatch</button></a>
-							<button class="btn btn-lg btn-default" data-dismiss="modal"><i class="icon-minus-sign"></i> Cancel</button>
+							<a href="../functions/dispatch.function.php?id=<?php echo($oItem['id']);?>"><button id="btn-dispatch" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Dispatch</button></a>
+							<button class="btn btn-lg btn-default" data-dismiss="modal"><i class="fa fa-minus-circle"></i> Cancel</button>
 						</div>
 					</div><!-- end modal-content -->
 				</div><!-- end modal-dialog -->

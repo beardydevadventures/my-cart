@@ -1,6 +1,7 @@
 
 <?php 
 	include('includes/db.inc.php');
+	include('includes/colorArray.inc.php');
 	include('includes/cart.inc.php');
 ?>
 <div class="mycart-plugin-cart-links">

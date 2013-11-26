@@ -1,3 +1,9 @@
+<?php ob_start(); session_start(); 
+	if(isset($_SESSION['admin']))
+	{
+		header('Location: ../admin/home.php');
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/cms.css"/>
 </head>
 <body>
+	<?php print_r($_SESSION['admin']);?>
 	<div class="pushy-footer-wrapper">
 	<div class="header-content">
 		<div class="wrapper clearfix">
@@ -17,14 +24,14 @@
 		<div class="wrapper clearfix">
 			<div class="signin-container">
 				<h4>Log in</h4>
-				<form action="home.php" method="post">				
+				<form action="../functions/adminsignin.function.php" method="post">				
 					<div class="form-group">
 						<span class="glyphicon glyphicon-user"></span>
-						<input type="email" class="form-control" placeholder="username" spellcheck="false"/>
+						<input type="text" name="un"class="form-control" placeholder="username" spellcheck="false"/>
 					</div>
 					<div class="form-group">
 						<span class="glyphicon glyphicon-lock"></span>
-						<input type="password" class="form-control" placeholder="password" spellcheck="false"/>
+						<input type="password" name="pw" class="form-control" placeholder="password" spellcheck="false"/>
 					</div>
 					<input class="btn btn-primary btn-mini" type="submit" value="Log in"/>
 					<a href="#">Forgot your password?</a>
