@@ -61,22 +61,8 @@
 			</ul>
 		</nav>
 	</div><!-- header -->
-	<!-- ============ mycart-plugin STORE ============ -->
-	<h2>Client's Website</h2>
-	<p>What you see here is what the client's website could look like. This interface has nothing to do with the MyCart plugin.</p>
-	<p>The sole purpose of this interface is to act as a generic website content purposes only.</p>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
+	<h2>About Us</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nisi, impedit, aspernatur sint voluptatum odit aperiam soluta explicabo nesciunt earum quo voluptates. Voluptate, vel, quod ratione ullam deserunt commodi quaerat.</p>
 	<div class="footer">
 		<ul>
 			<li><span class="client-span">ABC</span></li><!-- 

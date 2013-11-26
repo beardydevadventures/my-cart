@@ -13,7 +13,6 @@
 	<!-- mycart-plugin styling -->
 	<link rel="stylesheet" type="text/css" href="mycart-plugin/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="mycart-plugin/css/store.css"/>
-	<!-- <script type="text/javascript" src="js/main.js"></script> --> <!-- now loaded straight from the AJAX plugin call -->
 
 	<!-- mycart-plugin fancybox libraries -->
 	<link rel="stylesheet" href="mycart-plugin/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
@@ -23,7 +22,7 @@
 			box-shadow: 0 0 50px #222;
 		}
 	</style>
-	<!-- jquery libraries -->
+	<!-- mycart-plugin initiate -->
 	<script type="text/javascript">
 	$(function(){
 		$.ajax({
@@ -62,21 +61,7 @@
 		</nav>
 	</div><!-- header -->
 	<!-- ============ mycart-plugin STORE ============ -->
-	<h2>Client's Website</h2>
-	<p>What you see here is what the client's website could look like. This interface has nothing to do with the MyCart plugin.</p>
-	<p>The sole purpose of this interface is to act as a generic website content purposes only.</p>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
+	<div class="mycart-plugin mycart-plugin-store"></div>
 	<div class="footer">
 		<ul>
 			<li><span class="client-span">ABC</span></li><!-- 
