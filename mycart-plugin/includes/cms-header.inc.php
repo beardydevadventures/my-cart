@@ -1,3 +1,9 @@
+<?php ob_start(); session_start();
+	if(!isset($_SESSION['admin']))
+	{
+		header('Location: ../admin/');
+	}
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +21,7 @@
 			<div class="clearfix">
 				<a class="header-logo" href="home.php"><img class="client-logo" src="../img/placeholder-logo.png" alt="Logo"/></a>
 				<div class="header-nav">
-					<a href="index.php" class="btn btn-default">Logout</a>
+					<a href="../functions/adminsignin.function.php" class="btn btn-default">Logout</a>
 				</div>
 			</div>
 		</div><!-- end wrapper -->
