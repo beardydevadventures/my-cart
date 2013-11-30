@@ -3,13 +3,13 @@
 	$colArray = array();
 	
 	//gets values from database
-	$sth = $dbh->query("SELECT s.name, s.value
+	$colth = $dbh->query("SELECT s.name, s.value
 
 					FROM setting s");
 					
-	$sth->setFetchMode(PDO::FETCH_ASSOC);
+	$colth->setFetchMode(PDO::FETCH_ASSOC);
 	
-	while( $setting = $sth->fetch() )
+	while( $setting = $colth->fetch() )
 	{
 		$colArray[$setting['name']] = $setting['value'];
 	}

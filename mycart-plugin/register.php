@@ -1,5 +1,6 @@
 <?php 
 	include('includes/db.inc.php');
+	include('includes/colorArray.inc.php');
 	include('includes/nav.inc.php');
 ?>	
 <div class="mycart-plugin-content">

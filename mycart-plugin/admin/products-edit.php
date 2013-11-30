@@ -61,7 +61,7 @@
 					<label for="inputCategory" class="col-lg-2 control-label">Category</label>
 					<div class="col-lg-4">
 						<select type="text" class="form-control" id="inputCategory" name="inputCategory"/>
-							<option value="#">...</option>
+							<option value="#">Select a category</option>
 							<?php 
 								$catId = $product['categoryId'];
 								
@@ -114,7 +114,10 @@
 				<div class="form-group">
 					<label for="inputPrice" class="col-lg-2 control-label">Price</label>
 					<div class="col-lg-4">
-						<input type="text" class="form-control" id="inputPrice" name="inputPrice" placeholder="Product Price" value="<?php echo($product['cost']);?>"/>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-usd"></i></span>
+							<input type="text" class="form-control decimal" id="inputPrice" name="inputPrice" placeholder="Product Price" value="<?php echo($product['cost']);?>"/>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -148,7 +151,7 @@
 						<label class="col-lg-2 control-label"></label>
 						<div class="col-lg-10">
 							<p class="help-block">
-								<i class="icon-info"></i> Enter options to be displayed separated by a comma, then enter the quantity of this option.
+								<i class="fa fa-info"></i> Enter options to be displayed separated by a comma, then enter the quantity of this option.
 							</p>
 						</div>
 					</div>
@@ -183,6 +186,7 @@
 							<input type="text" class="form-control" id="inputOption" placeholder="Color, size, type etc" name="inputOption[]" value="<?php echo($var['description']);?>"/>
 							<input type="text" class="form-control" id="inputQuantity" placeholder="Quantity" name="inputQuantity[]" value="<?php echo($var['quantity']);?>"/>
 							<input type="hidden" name="inputId[]" value="<?php echo($var['id']); ?>">
+							<div class="col-lg-1"><fontAwesome class="fa fa-cross"></fontAwesome></div>
 						</div>
 					</div>
 					<?php 

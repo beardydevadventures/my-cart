@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/cms.css"/>
 </head>
 <body>
-	<?php print_r($_SESSION['admin']);?>
 	<div class="pushy-footer-wrapper">
 	<div class="header-content">
 		<div class="wrapper clearfix">

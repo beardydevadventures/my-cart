@@ -11,6 +11,7 @@
 		//inputs mycart nav and gets db
 		// include('includes/cart.inc.php');
 		include('includes/db.inc.php');
+		include('includes/colorArray.inc.php');
 		include('includes/nav.inc.php');
 		
 		/*$sth = $dbh->query("SELECT p.id, p.description, p.name, p.image, p.quantity, pp.productId, pp.dateTime, pp.cost
