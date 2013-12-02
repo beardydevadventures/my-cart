@@ -8,12 +8,7 @@
 					<h2>Customize</h2>
 				</div>
 			</div><!-- end page-heading clear-fix -->
-<<<<<<< HEAD
-			<h4 class="inline">Customize MyCart</h4>
-=======
 			<h4 class="inline">Customize My Cart</h4>
-
->>>>>>> origin/Phill
 			<!-- customize general panel -->
 			<form role="form" enctype="multipart/form-data" method="post" action="../functions/customize.function.php">
 				<!-- customize typography panel -->
@@ -60,16 +55,11 @@
 								<div class="col-lg-3">Heading size</div>
 								<div class="col-lg-3 relative">
 									<select class="form-control heading-size" name="heading-size">
-<<<<<<< HEAD
 										<option value='<?php echo($colArray['heading-size']); ?>' selected='selected'><?php echo($colArray['heading-size']); ?> (selected)</option>
 										<option value='10px'>10px</option>
 										<option value='11px'>11px</option>
 										<option value='12px'>12px</option>
 										<option value='13px'>14px</option>
-=======
-										<option value='18px' selected='selected'>18px (selected)</option>
-										<option value='14px'>14px</option>
->>>>>>> origin/Phill
 										<option value='16px'>16px</option>
 										<option value='18px'>18px</option>
 										<option value='20px'>20px</option>
@@ -78,13 +68,8 @@
 								</div>
 								<div class="col-lg-3">Body size</div>
 								<div class="col-lg-3 relative">
-<<<<<<< HEAD
 									<select class="form-control heading-size" name="body-size">
 										<option value='<?php echo($colArray['body-size']); ?>' selected='selected'><?php echo($colArray['body-size']); ?> (selected)</option>
-=======
-									<select class="form-control body-size" name="body-size">
-										<option value='14px' selected='selected'>14px (selected)</option>
->>>>>>> origin/Phill
 										<option value='10px'>10px</option>
 										<option value='11px'>11px</option>
 										<option value='12px'>12px</option>
@@ -185,13 +170,8 @@
 								</div>
 								<div class="col-lg-3">Sub-menu font hover color</div>
 								<div class="col-lg-3 relative">
-<<<<<<< HEAD
 									<input type="text" class="form-control sub-menu-font-hover-color" name="sub-menu-font-hover-color" value="<?php echo($colArray['sub-menu-font-hover-color']); ?>" placeholder="Select a color"/>
 									<div class="mask-smfhc preview"></div>
-=======
-									<input type="text" class="form-control sub-menu-font-hover-color" name="sub-menu-font-hover-color" value="#ff4444" placeholder="Select a color"/>
-									<div class="mycart-smfhc preview"></div>
->>>>>>> origin/Phill
 								</div>
 							</div>
 						</div><!-- end container -->
