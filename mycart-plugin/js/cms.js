@@ -1,7 +1,21 @@
 $(function(){
-	// Product Page -- initiate removeProduct Modal
+	/* ========================================= CATEGORIES PAGE functions ================ */
+	$(".sortable").nestedSortable({
+		handle: "div",
+		items: "li",
+		toleranceElement: "> div",
+		maxLevels: "2"
+	});
+
+	$(".srtbl-h").on("click", function(){
+		var test = $(".sortable").nestedSortable("toHierarchy");
+		console.log(test);
+	});
+
+
+	/* ========================================= PRODUCT PAGE functions ================ */
+	// initiate remove Product Modal
 	$(".products .remove").click(function(){
-		//$('.prodLink').preventDefault();
 		$("#removeProductModal").modal("show");
 		
 		var pname = $(this).attr('productName');
@@ -12,25 +26,69 @@ $(function(){
 		return false;
 	});
 
-	// Product Page -- remove the product
+	// remove the product
 	$("#btn-remove").click(function(){
 		$("#removeProductModal").modal("hide");
+
 		var remurl = "../functions/delete.function.php?id=" + $(this).attr('prodremId');
 		console.log(remurl);
 		window.location = remurl;
 	});
 
-	// go to corresponding link
-	function goToLink(e) {
-		window.location = $(this).find("a").attr("href");
-	}
-	
-	// Order Page -- when you click on the table row, take the corresponding page
-	$(".orders .row-link").click(goToLink);
-	$(".products .row-link").click(goToLink);
-	$(".shipping .row-link").click(goToLink);
+	// initiate remove Option modal
+	$(".remove-option").click(function(){
+		$("#removeOptionModal").modal("show");
 
-	// Order Page -- dispatch notice
+		var oname = $(this).attr("optionName");
+		var oid = $(this).attr("optionId");
+		$("#optremName").html(oname);
+		$("#btn-remove-option").attr("optremId", oid);
+	});
+
+	// remove the option
+	$("#btn-remove-option").click(function(){
+		$("#removeOptionModal").modal("hide");
+		/*
+		var remurl = "../functions/delete.function.php?id=" + $(this).attr('prodremId');
+		console.log(remurl);
+		window.location = remurl;
+		*/
+		alert("Write function to remove option! The Option ID is " + $(this).attr("optremId"));
+	});
+
+	// New Product - add new option panel
+	function addOption(){
+		// find out how many options already exist
+		var numItems = $(".form-selecting .form-group").length;
+		// find the text value of the last option
+		var lastOption = $(".form-selecting > div:nth-child("+numItems+") > div > input").val();
+		if(lastOption == null) {
+			lastOption = '';
+		}
+		// create a 'new' option pre-filled with last option and increment id's
+		var htmlFormGroup = '<div class="form-group"><label for="inputOption' + (numItems) + '" class="col-lg-2 control-label">Option</label><div class="col-lg-10"><input type="text" class="form-control" id="inputOption' + (numItems) + '" placeholder="Color, size, type etc" value="' + lastOption + '" name="inputOption[]"/><input type="text" class="form-control" id="inputQuantity' + (numItems) + '" placeholder="Quantity" name="inputQuantity[]"/><a class="remove-cancel">Cancel</a></div></div>';
+
+		$(".form-selecting > div:nth-child("+numItems+")").after(htmlFormGroup);
+		var numItems = $(".form-selecting .form-group").length;
+		var lastOption = $(".form-selecting > div:nth-child("+numItems+") > div > input[id^='inputOption']").focus();
+	}
+
+	// New Product -- add new option button
+	$("#addOption").on("click", addOption);
+
+	// New Product -- add a new option when the user hits 'enter'
+	$('.form-selecting').on("keypress", function(e) {
+		if(e.keyCode == 13 || e.keyCode == 9)
+		{
+			addOption();
+			var numItems = $(".form-selecting .form-group").length;
+			var lastOption = $(".form-selecting > div:nth-child("+numItems+") > div > input[id^='inputOption']").focus();
+		}
+		return e.keyCode != 13;
+	});	
+	
+	/* ========================================= ORDER PAGE functions ================ */
+	// Dispatch notice
 	$("#btn-dispatch").click(function(){
 		$(".dispatch-notice").removeClass("panel-danger");
 		$(".dispatch-notice").addClass("panel-success");
@@ -45,7 +103,18 @@ $(function(){
 		$(".orders .text-danger").removeClass("text-danger").addClass("text-success").html("Dispatched");
 	});
 
-	// Shipping Page && Product Page -- decimal place format when finished typing	
+	/* ========================================= GENERAL functions ================ */
+	// go to corresponding link
+	function goToLink(e) {
+		window.location = $(this).find("a").attr("href");
+	}
+
+	// When you click on the table row, take the corresponding page
+	$(".orders .row-link").click(goToLink);
+	$(".products .row-link").click(goToLink);
+	$(".shipping .row-link").click(goToLink);
+
+	// decimal place format when finished typing	
 	$(".decimal").on("change", function(){
 		if(isNaN(parseFloat(this.value)))
 		{
@@ -56,44 +125,14 @@ $(function(){
 			$(this).val(parseFloat($(this).val()).toFixed(2));
 		}
 	});
-	
-	// textarea tinyMCE
+
+	// initiate tinyMCE
     tinymce.init({
         selector: 'textarea',
         content_css: '../css/tinymce.css' 
     });
-    
-    // New Product - add new option panel
-	function addOption(){
-		// find out how many options already exist
-		var numItems = $(".form-selecting .form-group").length;
-		// find the text value of the last option
-		var lastOption = $(".form-selecting > div:nth-child("+numItems+") > div > input").val();
-		if(lastOption == null) {
-			lastOption = '';
-		}
-		// create a 'new' option pre-filled with last option and increment id's
-		var htmlFormGroup = '<div class="form-group"><label for="inputOption' + (numItems) + '" class="col-lg-2 control-label">Option</label><div class="col-lg-10"><input type="text" class="form-control" id="inputOption' + (numItems) + '" placeholder="Color, size, type etc" value="' + lastOption + '" name="inputOption[]"/><input type="text" class="form-control" id="inputQuantity' + (numItems) + '" placeholder="Quantity" name="inputQuantity[]"/></div></div>';
 
-		$(".form-selecting > div:nth-child("+numItems+")").after(htmlFormGroup);
-		var numItems = $(".form-selecting .form-group").length;
-		var lastOption = $(".form-selecting > div:nth-child("+numItems+") > div > input[id^='inputOption']").focus();
-	}
-
-	// New Product -- add new option button
-	$("#addOption").on("click", addOption);
-
-	$('.form-selecting').on("keypress", function(e) {
-		if(e.keyCode == 13 || e.keyCode == 9)
-		{
-			addOption();
-			var numItems = $(".form-selecting .form-group").length;
-			var lastOption = $(".form-selecting > div:nth-child("+numItems+") > div > input[id^='inputOption']").focus();
-		}
-		return e.keyCode != 13;
-	});	
-
-	// ============================= Customization Page =================================== //
+	/* ========================================= CUSTOMIZATION PAGE functions ================ */
 
 	// hide the mycart nav 
 	$(".mycart-nav > ul > li > a + ul").hide(0);

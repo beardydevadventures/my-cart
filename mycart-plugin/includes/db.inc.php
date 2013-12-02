@@ -1,6 +1,6 @@
 <?php
 $host="localhost";
-$dbname="mycartclient";
+$dbname="mycart-test";
 $user="root";
 $pass="";
 

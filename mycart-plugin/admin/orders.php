@@ -23,7 +23,7 @@
 					</div>
 				</div><!-- end page-nav -->
 			</div><!-- end page-heading clear-fix -->
-			<h4>View All Orders</h4>
+			<h4 class="inline">View All Orders</h4>
 			<table class="orders table table-hover">
 				<thead>
 					<tr>

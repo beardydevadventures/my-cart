@@ -8,7 +8,7 @@
 					<h2>Customize</h2>
 				</div>
 			</div><!-- end page-heading clear-fix -->
-			<h4 class="inline">Customize MyCart</h4>
+			<h4 class="inline">Customize My Cart</h4>
 
 			<!-- customize general panel -->
 			<form role="form" enctype="multipart/form-data" method="post" action="../functions/customize.function.php">
@@ -173,7 +173,7 @@
 								</div>
 							</div>
 						</div><!-- end container -->
-						<div class="panel-body panel-border-top">
+						<div class="panel-body mycart panel-border-top">
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="mycart-nav clearfix">
@@ -182,7 +182,7 @@
 												<a>Category 1</a>
 											</li>
 											<li>
-												<a>Category 2 <span class='fa fa-chevron-down'></i></a>
+												<a>Category 2 <i class='fa fa-chevron-down'></i></a>
 												<ul>
 													<li><a>Sub-category</a></li>
 													<li><a>Sub-category</a></li>
@@ -289,7 +289,7 @@
 								</div>
 							</div>
 						</div><!-- end container -->
-						<div class="panel-body panel-border-top">  
+						<div class="panel-body mycart panel-border-top">  
 							<div class="row">
 								<div class="col-lg-6 center">
 									<button class="mycart-button" onclick="return false;">Button</button>
