@@ -19,7 +19,7 @@
 					</div><!-- end page-nav-2 -->
 				</div><!-- end page-nav -->
 			</div><!-- end page-head clear-fix -->
-			<h4>View All Products</h4>
+			<h4 class="inline">View All Products</h4>
 			<table class="products table table-hover">
 				<thead>
 					<tr>
@@ -92,7 +92,7 @@
 						?>
 						<td>$<?php echo($product['cost']);?></td>
 						<td>$<?php echo($product['cost']);?></td>
-						<td><button class="btn btn-danger remove" productId="<?php echo($product['id']);?>" productName="<?php echo($product['name']);?>"><i class="fa fa-times"></i></button></td>
+						<td><button class="btn btn-danger btn-sm remove" productId="<?php echo($product['id']);?>" productName="<?php echo($product['name']);?>"><i class="fa fa-times"></i></button></td>
 					</tr>				
 				<?php 
 				}

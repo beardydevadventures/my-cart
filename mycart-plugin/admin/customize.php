@@ -8,7 +8,12 @@
 					<h2>Customize</h2>
 				</div>
 			</div><!-- end page-heading clear-fix -->
+<<<<<<< HEAD
 			<h4 class="inline">Customize MyCart</h4>
+=======
+			<h4 class="inline">Customize My Cart</h4>
+
+>>>>>>> origin/Phill
 			<!-- customize general panel -->
 			<form role="form" enctype="multipart/form-data" method="post" action="../functions/customize.function.php">
 				<!-- customize typography panel -->
@@ -55,22 +60,35 @@
 								<div class="col-lg-3">Heading size</div>
 								<div class="col-lg-3 relative">
 									<select class="form-control heading-size" name="heading-size">
+<<<<<<< HEAD
 										<option value='<?php echo($colArray['heading-size']); ?>' selected='selected'><?php echo($colArray['heading-size']); ?> (selected)</option>
 										<option value='10px'>10px</option>
 										<option value='11px'>11px</option>
 										<option value='12px'>12px</option>
 										<option value='13px'>14px</option>
+=======
+										<option value='18px' selected='selected'>18px (selected)</option>
+										<option value='14px'>14px</option>
+>>>>>>> origin/Phill
 										<option value='16px'>16px</option>
+										<option value='18px'>18px</option>
+										<option value='20px'>20px</option>
+										<option value='22px'>22px</option>
 									</select>
 								</div>
 								<div class="col-lg-3">Body size</div>
 								<div class="col-lg-3 relative">
+<<<<<<< HEAD
 									<select class="form-control heading-size" name="body-size">
 										<option value='<?php echo($colArray['body-size']); ?>' selected='selected'><?php echo($colArray['body-size']); ?> (selected)</option>
+=======
+									<select class="form-control body-size" name="body-size">
+										<option value='14px' selected='selected'>14px (selected)</option>
+>>>>>>> origin/Phill
 										<option value='10px'>10px</option>
 										<option value='11px'>11px</option>
 										<option value='12px'>12px</option>
-										<option value='13px'>14px</option>
+										<option value='14px'>14px</option>
 										<option value='16px'>16px</option>
 									</select>
 								</div>
@@ -121,7 +139,7 @@
 						<div class="panel-body mycart panel-border-top">
 							<div class="row">
 								<div class="col-lg-6">
-									<p>This is an <a class="mycart-link">example link</a>.</p>
+									<p class="mycart-container">This is an <a class="mycart-link">example link</a>.</p>
 								</div>
 								<div class="col-lg-6">
 								</div>
@@ -167,12 +185,17 @@
 								</div>
 								<div class="col-lg-3">Sub-menu font hover color</div>
 								<div class="col-lg-3 relative">
+<<<<<<< HEAD
 									<input type="text" class="form-control sub-menu-font-hover-color" name="sub-menu-font-hover-color" value="<?php echo($colArray['sub-menu-font-hover-color']); ?>" placeholder="Select a color"/>
 									<div class="mask-smfhc preview"></div>
+=======
+									<input type="text" class="form-control sub-menu-font-hover-color" name="sub-menu-font-hover-color" value="#ff4444" placeholder="Select a color"/>
+									<div class="mycart-smfhc preview"></div>
+>>>>>>> origin/Phill
 								</div>
 							</div>
 						</div><!-- end container -->
-						<div class="panel-body panel-border-top">
+						<div class="panel-body mycart panel-border-top">
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="mycart-nav clearfix">
@@ -181,7 +204,7 @@
 												<a>Category 1</a>
 											</li>
 											<li>
-												<a>Category 2 <span class='fa fa-chevron-down'></i></a>
+												<a>Category 2 <i class='fa fa-chevron-down'></i></a>
 												<ul>
 													<li><a>Sub-category</a></li>
 													<li><a>Sub-category</a></li>
@@ -288,7 +311,7 @@
 								</div>
 							</div>
 						</div><!-- end container -->
-						<div class="panel-body panel-border-top">  
+						<div class="panel-body mycart panel-border-top">  
 							<div class="row">
 								<div class="col-lg-6 center">
 									<button class="mycart-button" onclick="return false;">Button</button>

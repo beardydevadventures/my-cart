@@ -1,6 +1,10 @@
 <?php
 $host="localhost";
+<<<<<<< HEAD
 $dbname="mycartdb";
+=======
+$dbname="mycart-test";
+>>>>>>> origin/Phill
 $user="root";
 $pass="";
 
