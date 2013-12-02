@@ -9,7 +9,6 @@
 				</div>
 			</div><!-- end page-heading clear-fix -->
 			<h4 class="inline">Customize MyCart</h4>
-			<?php print_r($colArray);?>
 			<!-- customize general panel -->
 			<form role="form" enctype="multipart/form-data" method="post" action="../functions/customize.function.php">
 				<!-- customize typography panel -->
@@ -56,7 +55,7 @@
 								<div class="col-lg-3">Heading size</div>
 								<div class="col-lg-3 relative">
 									<select class="form-control heading-size" name="heading-size">
-										<option value='12px' selected='selected'>12px (selected)</option>
+										<option value='<?php echo($colArray['heading-size']); ?>' selected='selected'><?php echo($colArray['heading-size']); ?> (selected)</option>
 										<option value='10px'>10px</option>
 										<option value='11px'>11px</option>
 										<option value='12px'>12px</option>
@@ -66,8 +65,8 @@
 								</div>
 								<div class="col-lg-3">Body size</div>
 								<div class="col-lg-3 relative">
-									<select class="form-control heading-size" name="heading-size">
-										<option value='12px' selected='selected'>12px (selected)</option>
+									<select class="form-control heading-size" name="body-size">
+										<option value='<?php echo($colArray['body-size']); ?>' selected='selected'><?php echo($colArray['body-size']); ?> (selected)</option>
 										<option value='10px'>10px</option>
 										<option value='11px'>11px</option>
 										<option value='12px'>12px</option>
@@ -91,7 +90,7 @@
 							<div class="row">
 								<div class="col-lg-3">Link color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control link-color" name="link-color" value="#E07900" placeholder="Select a color"/>
+									<input type="text" class="form-control link-color" name="link-color" value="<?php echo($colArray['link-color']); ?>" placeholder="Select a color"/>
 									<div class="mycart-lc preview"></div>
 								</div>
 								<div class="col-lg-3"></div>
@@ -101,7 +100,7 @@
 							<div class="row">
 								<div class="col-lg-3">Link hover color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control link-hover-color" name="link-hover-color" value="#ED9F2B" placeholder="Select a color"/>
+									<input type="text" class="form-control link-hover-color" name="link-hover-color" value="<?php echo($colArray['link-hover-color']); ?>" placeholder="Select a color"/>
 									<div class="mycart-lhc preview"></div>
 								</div>
 								<div class="col-lg-3"></div>
@@ -111,7 +110,7 @@
 							<div class="row">
 								<div class="col-lg-3">Link active color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control link-active-color" name="link-active-color" value="#FF4930" placeholder="Select a color"/>
+									<input type="text" class="form-control link-active-color" name="link-active-color" value="<?php echo($colArray['link-active-color']); ?>" placeholder="Select a color"/>
 									<div class="mycart-lac preview"></div>
 								</div>
 								<div class="col-lg-3"></div>
@@ -139,36 +138,36 @@
 							<div class="row">
 								<div class="col-lg-3">Menu color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control menu-color" name="menu-color" value="#E67E22" placeholder="Select a color"/>
+									<input type="text" class="form-control menu-color" name="menu-color" value="<?php echo($colArray['menu-color']); ?>" placeholder="Select a color"/>
 									<div class="mycart-mc preview"></div>
 								</div>
 								<div class="col-lg-3">Menu font color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control menu-font-color" name="menu-font-color" value="#FFFFFF" placeholder="Select a color"/>
+									<input type="text" class="form-control menu-font-color" name="menu-font-color" value="<?php echo($colArray['menu-font-color']); ?>" placeholder="Select a color"/>
 									<div class="mycart-mfc preview"></div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-lg-3">Sub-menu color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control sub-menu-color" name="sub-menu-color" value="#CF2E2E" placeholder="Select a color"/>
+									<input type="text" class="form-control sub-menu-color" name="sub-menu-color" value="<?php echo($colArray['sub-menu-color']); ?>" placeholder="Select a color"/>
 									<div class="mycart-smc preview"></div>
 								</div>
 								<div class="col-lg-3">Sub-menu font color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control sub-menu-font-color" name="sub-menu-font-color" value="#FFFFFF" placeholder="Select a color"/>
+									<input type="text" class="form-control sub-menu-font-color" name="sub-menu-font-color" value="<?php echo($colArray['sub-menu-font-color']); ?>" placeholder="Select a color"/>
 									<div class="mycart-smfc preview"></div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-lg-3">Sub-menu hover color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control sub-menu-hover-color" name="sub-menu-hover-color" value="#0789B4" placeholder="Select a color"/>
+									<input type="text" class="form-control sub-menu-hover-color" name="sub-menu-hover-color" value="<?php echo($colArray['sub-menu-hover-color']); ?>" placeholder="Select a color"/>
 									<div class="mycart-smhc preview"></div>
 								</div>
 								<div class="col-lg-3">Sub-menu font hover color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control sub-menu-font-hover-color" name="sub-menu-font-hover-color" value="#FFFFFF" placeholder="Select a color"/>
+									<input type="text" class="form-control sub-menu-font-hover-color" name="sub-menu-font-hover-color" value="<?php echo($colArray['sub-menu-font-hover-color']); ?>" placeholder="Select a color"/>
 									<div class="mask-smfhc preview"></div>
 								</div>
 							</div>
