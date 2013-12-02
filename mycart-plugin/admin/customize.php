@@ -56,22 +56,22 @@
 								<div class="col-lg-3">Heading size</div>
 								<div class="col-lg-3 relative">
 									<select class="form-control heading-size" name="heading-size">
-										<option value='12px' selected='selected'>12px (selected)</option>
-										<option value='10px'>10px</option>
-										<option value='11px'>11px</option>
-										<option value='12px'>12px</option>
-										<option value='13px'>14px</option>
+										<option value='18px' selected='selected'>18px (selected)</option>
+										<option value='14px'>14px</option>
 										<option value='16px'>16px</option>
+										<option value='18px'>18px</option>
+										<option value='20px'>20px</option>
+										<option value='22px'>22px</option>
 									</select>
 								</div>
 								<div class="col-lg-3">Body size</div>
 								<div class="col-lg-3 relative">
-									<select class="form-control heading-size" name="heading-size">
-										<option value='12px' selected='selected'>12px (selected)</option>
+									<select class="form-control body-size" name="body-size">
+										<option value='14px' selected='selected'>14px (selected)</option>
 										<option value='10px'>10px</option>
 										<option value='11px'>11px</option>
 										<option value='12px'>12px</option>
-										<option value='13px'>14px</option>
+										<option value='14px'>14px</option>
 										<option value='16px'>16px</option>
 									</select>
 								</div>
@@ -122,7 +122,7 @@
 						<div class="panel-body mycart panel-border-top">
 							<div class="row">
 								<div class="col-lg-6">
-									<p>This is an <a class="mycart-link">example link</a>.</p>
+									<p class="mycart-container">This is an <a class="mycart-link">example link</a>.</p>
 								</div>
 								<div class="col-lg-6">
 								</div>
@@ -168,8 +168,8 @@
 								</div>
 								<div class="col-lg-3">Sub-menu font hover color</div>
 								<div class="col-lg-3 relative">
-									<input type="text" class="form-control sub-menu-font-hover-color" name="sub-menu-font-hover-color" value="#FFFFFF" placeholder="Select a color"/>
-									<div class="mask-smfhc preview"></div>
+									<input type="text" class="form-control sub-menu-font-hover-color" name="sub-menu-font-hover-color" value="#ff4444" placeholder="Select a color"/>
+									<div class="mycart-smfhc preview"></div>
 								</div>
 							</div>
 						</div><!-- end container -->

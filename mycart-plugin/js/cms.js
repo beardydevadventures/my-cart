@@ -127,6 +127,88 @@ $(function(){
 	// 	$(".mask-color-2").css("background-color", secondaryColor);
 	// });
 
+	// ================== Live preview -- heading, body and links
+	$('.heading-font').on("change", function(){
+		var headingFont = $(this).val();
+		$('.mycart-heading').css('font-family', headingFont);
+	});
+	
+	var headingColor = $('.heading-color').val();
+	$(".mycart-heading").css("color", headingColor);
+	$(".mycart-thc").css("background-color", headingColor);
+	$('.heading-color').colorpicker().on('changeColor', function(e){
+		headingColor = e.color.toHex();
+		$(".mycart-heading").css("color", headingColor);
+		$(".mycart-thc").css("background-color", headingColor);
+	});
+
+	$('.heading-size').on("change", function(){
+		var headingSize = $(this).val();
+		$('.mycart-heading').css('font-size', headingSize);
+	});
+
+
+
+	$('.body-font').on("change", function(){
+		var bodyFont = $(this).val();
+		$('.mycart-body').css('font-family', bodyFont);
+	});
+
+	var bodyColor = $('.body-color').val();
+	$(".mycart-body").css("color", bodyColor);
+	$(".mycart-tbc").css("background-color", bodyColor);
+	$('.body-color').colorpicker().on('changeColor', function(e){
+		bodyColor = e.color.toHex();
+		$(".mycart-body").css("color", bodyColor);
+		$(".mycart-tbc").css("background-color", bodyColor);
+	});
+
+	$('.body-size').on("change", function(){
+		var bodySize = $(this).val();
+		$('.mycart-body').css('font-size', bodySize);
+	});
+
+
+
+	var linkColor = $('.link-color').val();
+	$(".mycart-link").css("color", linkColor);
+	$(".mycart-lc").css("background-color", linkColor);
+	$('.link-color').colorpicker().on('changeColor', function(e){
+		linkColor = e.color.toHex();
+		$(".mycart-link").css("color", linkColor);
+		$(".mycart-lc").css("background-color", linkColor);
+	});
+
+	var linkHoverColor = $('.link-hover-color').val();
+	$(".mycart-lhc").css("background-color", linkHoverColor);
+	$(".mycart-link").on("mouseover", function(){
+			$(this).css("color", linkHoverColor);
+		}).mouseout(function(){
+			$(this).css("color", linkColor);
+		});
+	$('.link-hover-color').colorpicker().on('changeColor', function(e){
+		linkHoverColor = e.color.toHex();
+		$(".mycart-lhc").css("background-color", linkHoverColor);
+		$(".mycart-link").on("mouseover", function(){
+			$(this).css("color", linkHoverColor);
+		}).mouseout(function(){
+			$(this).css("color", linkColor);
+		});
+	});
+
+	var linkActiveColor = $('.link-active-color').val();
+	$(".mycart-lac").css("background-color", linkActiveColor);
+	$(".mycart-link").on("mousedown", function(){
+		$(this).css("color", linkActiveColor);
+	}).mouseup(function(){
+		$(this).css("color", linkHoverColor);
+	});
+	$('.link-active-color').colorpicker().on('changeColor', function(e){
+		linkActiveColor = e.color.toHex();
+		$(".mycart-lac").css("background-color", linkActiveColor);
+	});
+
+
 	// ================== Live preview -- menu
 	var menuColor = $(".menu-color").val();
 	$(".mycart-mc").css("background-color", menuColor);
@@ -190,81 +272,13 @@ $(function(){
 		});
 	$('.sub-menu-font-hover-color').colorpicker().on('changeColor', function(e){
 		subMenuFontHoverColor = e.color.toHex();
-		$(".mycart-smfhc").css("color", subMenuFontHoverColor);
+		$(".mycart-smfhc").css("background-color", subMenuFontHoverColor);
 		$(".mycart-nav > ul > li > ul > li > a").on("mouseover", function(){
 			$(this).css("color", subMenuFontHoverColor);
 		}).mouseout(function(){
 			$(this).css("color", subMenuFontColor);
 		});
 	});
-
-	// ================== Live preview -- heading, body and links
-	$('.heading-font').on("change", function(){
-		var headingFont = $(this).val();
-		$('.mycart-heading').css('font-family', headingFont);
-	});
-	
-	var headingColor = $('.heading-color').val();
-	$(".mycart-heading").css("color", headingColor);
-	$(".mycart-thc").css("background-color", headingColor);
-	$('.heading-color').colorpicker().on('changeColor', function(e){
-		headingColor = e.color.toHex();
-		$(".mycart-heading").css("color", headingColor);
-		$(".mycart-thc").css("background-color", headingColor);
-	});
-
-	$('.body-font').on("change", function(){
-		var bodyFont = $(this).val();
-		$('.mycart-body').css('font-family', bodyFont);
-	});
-
-	var bodyColor = $('.body-color').val();
-	$(".mycart-body").css("color", bodyColor);
-	$(".mycart-tbc").css("background-color", bodyColor);
-	$('.body-color').colorpicker().on('changeColor', function(e){
-		bodyColor = e.color.toHex();
-		$(".mycart-body").css("color", bodyColor);
-		$(".mycart-tbc").css("background-color", bodyColor);
-	});
-
-	var linkColor = $('.link-color').val();
-	$(".mycart-link").css("color", linkColor);
-	$(".mycart-lc").css("background-color", linkColor);
-	$('.link-color').colorpicker().on('changeColor', function(e){
-		linkColor = e.color.toHex();
-		$(".mycart-link").css("color", linkColor);
-		$(".mycart-lc").css("background-color", linkColor);
-	});
-
-	var linkHoverColor = $('.link-hover-color').val();
-	$(".mycart-lhc").css("background-color", linkHoverColor);
-	$(".mycart-link").on("mouseover", function(){
-			$(this).css("color", linkHoverColor);
-		}).mouseout(function(){
-			$(this).css("color", linkColor);
-		});
-	$('.link-hover-color').colorpicker().on('changeColor', function(e){
-		linkHoverColor = e.color.toHex();
-		$(".mycart-lhc").css("background-color", linkHoverColor);
-		$(".mycart-link").on("mouseover", function(){
-			$(this).css("color", linkHoverColor);
-		}).mouseout(function(){
-			$(this).css("color", linkColor);
-		});
-	});
-
-	var linkActiveColor = $('.link-active-color').val();
-	$(".mycart-lac").css("background-color", linkActiveColor);
-	$(".mycart-link").on("mousedown", function(){
-		$(this).css("color", linkActiveColor);
-	}).mouseup(function(){
-		$(this).css("color", linkHoverColor);
-	});
-	$('.link-active-color').colorpicker().on('changeColor', function(e){
-		linkActiveColor = e.color.toHex();
-		$(".mycart-lac").css("background-color", linkActiveColor);
-	});
-
 
 	// =================== Live preview -- buttons
 	var buttonColor = $('.button-color').val();

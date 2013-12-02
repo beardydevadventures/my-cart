@@ -151,8 +151,15 @@ html, body {
 			border-radius: 4px;
 }
 
+.signin-container i {
+	color: #555;
+	font-size: 18px;
+	width: 11px;
+}
+
 .signin-container h4 {
 	margin-top: 0;
+	margin-bottom: 15px;
 }
 
 .signin-container span {
@@ -160,17 +167,12 @@ html, body {
 }
 
 .signin-container input[type="submit"] {
-	width: 100%;	
+	margin-top: 15px;
+	width: 100%;
 }
 
-.signin-container input[type="email"],
-.signin-container input[type="password"] {
-	width: 230px;
-	display: inline-block;
-}
-
-.signin-container .form-group {
-	
+.signin-container .input-group {
+	margin-bottom: 10px;
 }
 
 .signin-container a {
@@ -451,6 +453,10 @@ body.mce-content-body {
 	right: 15px;
 }
 
+.mycart-body {
+	margin-bottom: 0;
+}
+
 
 .mycart-nav {
 	width: 100%;
@@ -620,6 +626,10 @@ body.mce-content-body {
 	display: inline-block;
 }
 
+.customize .mycart .row {
+	margin: 10px 0;
+}
+
 .customize .row {
 	margin-bottom: 15px;
 }
@@ -633,7 +643,8 @@ body.mce-content-body {
 }
 
 .mycart-heading,
-.mycart-body {
+.mycart-body,
+.mycart-container {
 	margin: 0;
 	padding: 0;
 	vertical-align: middle;
