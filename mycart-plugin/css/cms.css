@@ -243,6 +243,31 @@ h4.inline {
 	cursor: pointer;
 }
 
+.categories ol ol {
+	margin-top: 6px;
+}
+
+.sortable-highlight {
+	background-color: rgba(255,165,0,.1);
+	border: 2px dashed rgba(255,165,0,.2);
+	border-radius: 5px;
+	width: 100px;
+	height: 34px;
+	padding: 0;
+}
+
+ol ol .sortable-highlight {
+	margin-bottom: -4.5px;
+	padding: 0;
+}
+
+ol ol ol .sortable-highlight {
+	padding: 0;
+}
+
+.ui-sortable-helper {
+	opacity: .6;
+}
 
 /* ==================================================
 						cms - products 
