@@ -17,13 +17,13 @@
 						<div class="input-group">
 							<input type="search" class="form-control" placeholder="Search Orders"/>
 							<span class="input-group-addon">
-								<i class="icon-search"></i>
+								<i class="fa fa-search"></i>
 							</span>
 						</div><!-- end input-group -->
 					</div>
 				</div><!-- end page-nav -->
 			</div><!-- end page-heading clear-fix -->
-			<h4>View All Orders</h4>
+			<h4 class="inline">View All Orders</h4>
 			<table class="orders table table-hover">
 				<thead>
 					<tr>

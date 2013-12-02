@@ -41,7 +41,7 @@ if(!$id)
 					<img src="mycart-plugin/<?php echo($row['image']);?>"></img>
 					<p style="font-family: <?php echo($colArray['body-font']); ?> !important;"><?php echo($row['name']);?></p>
 				</a>
-					<p style="font-family: <?php echo($colArray['body-font']); ?> !important;">$<?php echo($row['cost']);?></p>
+				<p style="font-family: <?php echo($colArray['body-font']); ?> !important;">$<?php echo($row['cost']);?></p>
 			</div>
 		<?php
 	}		
@@ -75,7 +75,7 @@ else
 		?>			
 		<div class="mycart-plugin-product-grid">
 			<a class="mycart-plugin-page-link" href="mycart-plugin/products-show.php?id=<?php echo($row['id']);?>">
-				<img src="<?php echo($row['image']);?>"/>
+				<img src="mycart-plugin/<?php echo($row['image']);?>"/>
 				<p style="font-family: <?php echo($colArray['body-font']); ?> !important;"><?php echo($row['name']);?></p>
 			</a>
 				<p style="font-family: <?php echo($colArray['body-font']); ?> !important;">$<?php echo($row['cost']);?></p>

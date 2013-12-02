@@ -13,7 +13,7 @@
 						<tr>
 							<td>Australia</td>
 							<td></td>
-							<td><i class="icon-globe"></i> International</td>
+							<td><i class="fa fa-globe"></i> International</td>
 							<td></td>
 						</tr>
 					</thead>

@@ -7,19 +7,19 @@
 				</div>
 				<div class="page-nav">
 					<div class="page-nav-1">
-						<a href="products-edit.php" class="btn btn-success"><i class="icon-plus"></i> Create New Product</a>
+						<a href="products-edit.php" class="btn btn-success"><i class="fa fa-plus"></i> Create New Product</a>
 					</div><!--  end page-nav-1 -->
 					<div class="page-nav-2">
 						<div class="input-group">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button"><i class="icon-search"></i></button>
+							<input type="search" class="form-control" placeholder="Search Orders"/>
+							<span class="input-group-addon">
+								<i class="fa fa-search"></i>
 							</span>
-							<input type="search" class="form-control" placeholder="Search Products"/>
 						</div><!-- end input-group -->
 					</div><!-- end page-nav-2 -->
 				</div><!-- end page-nav -->
 			</div><!-- end page-head clear-fix -->
-			<h4>View All Products</h4>
+			<h4 class="inline">View All Products</h4>
 			<table class="products table table-hover">
 				<thead>
 					<tr>
@@ -92,7 +92,7 @@
 						?>
 						<td>$<?php echo($product['cost']);?></td>
 						<td>$<?php echo($product['cost']);?></td>
-						<td><button class="btn btn-danger remove" productId="<?php echo($product['id']);?>" productName="<?php echo($product['name']);?>"><i class="icon-remove"></i></button></td>
+						<td><button class="btn btn-danger btn-sm remove" productId="<?php echo($product['id']);?>" productName="<?php echo($product['name']);?>"><i class="fa fa-times"></i></button></td>
 					</tr>				
 				<?php 
 				}
@@ -105,15 +105,15 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-cross"></i></button>
 							<h4 class="modal-title">Remove Product</h4>
 						</div>
 						<div class="modal-body">
 							<p>Are you sure you want to remove <b id="prodremName">Blaq Shirt</b> from your store?</p>
 						</div>
 						<div class="modal-footer">
-							<button id="btn-remove" class="btn btn-lg btn-success"><i class="icon-check"></i> Remove</button>
-							<button class="btn btn-lg btn-default" data-dismiss="modal"><i class="icon-minus-sign"></i> Cancel</button>
+							<button id="btn-remove" class="btn btn-lg btn-success"><i class="fa fa-trash-o"></i> Remove</button>
+							<button class="btn btn-lg btn-default" data-dismiss="modal">Cancel</button>
 						</div>
 					</div><!-- end modal-content -->
 				</div><!-- end modal-dialog -->

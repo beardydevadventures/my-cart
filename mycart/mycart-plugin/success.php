@@ -1,5 +1,6 @@
 <?php
 	include("includes/header.inc.php");
+	include('includes/colorArray.inc.php');
 	include('includes/nav.inc.php')
 ?>
 	<h1>Successful payment</h1>

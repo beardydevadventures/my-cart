@@ -13,11 +13,11 @@
 				
 				if($id != NULL)
 				{ 
-					echo("<h4>Edit Product</h4>");
+					echo("<h4 class='inline'>Edit Product</h4>");
 				} 
 				else
 				{ 
-					echo("<h4>Create Product</h4>");
+					echo("<h4 class='inline'>Create Product</h4>");
 				}
 								
 				require('../includes/db.inc.php');
@@ -115,8 +115,8 @@
 					<label for="inputPrice" class="col-lg-2 control-label">Price</label>
 					<div class="col-lg-4">
 						<div class="input-group">
-							<span class="input-group-addon"><i class="icon-dollar"></i></span>
-							<input type="text" class="form-control" id="inputPrice" name="inputPrice" placeholder="Product Price" value="<?php echo($product['cost']);?>"/>
+							<span class="input-group-addon"><i class="fa fa-usd"></i></span>
+							<input type="text" class="form-control decimal" id="inputPrice" name="inputPrice" placeholder="Product Price" value="<?php echo($product['cost']);?>"/>
 						</div>
 					</div>
 				</div>
@@ -151,7 +151,7 @@
 						<label class="col-lg-2 control-label"></label>
 						<div class="col-lg-10">
 							<p class="help-block">
-								<i class="icon-info"></i> Enter options to be displayed separated by a comma, then enter the quantity of this option.
+								<i class="fa fa-info"></i> Enter options to be displayed separated by a comma, then enter the quantity of this option.
 							</p>
 						</div>
 					</div>
@@ -170,23 +170,25 @@
 					{
 					?>
 					<div class="form-group">
-						<label for="inputOption1" class="col-lg-2 control-label">Option
-						<?php 
+						<label for="inputOption1" class="col-lg-2 control-label">Option</label>
+						<div class="col-lg-10">
+							<input disabled type="text" class="form-control" id="inputOption" placeholder="Color, size, type etc" name="inputOption[]" value="<?php echo($var['description']);?>"/><!--
+						 --><input type="text" class="form-control" id="inputQuantity" placeholder="Quantity" name="inputQuantity[]" value="<?php echo($var['quantity']);?>"/><!--
+					 	 --><input type="hidden" name="inputId[]" value="<?php echo($var['id']); ?>"><!--
+						 --><?php 
 						if($var['quantity'] <= 0 )
 						{
-							echo( '<span class="label label-danger" style="opacity: .7;">Out of Stock</span>' );
+							echo( '<span class="label label-danger stock-level" style="opacity: .7;">Out-of-stock</span>' );
 						}
 						elseif($var['quantity'] > 0 && $var['quantity'] <= 5)
 						{
-							echo( '<span class="label label-warning" style="opacity: .7;">Low</span>' );
+							echo( '<span class="label label-warning stock-level" style="opacity: .7;">Low-stock</span>' );
 						}
-						?>
-						</label>
-						<div class="col-lg-10">
-							<input type="text" class="form-control" id="inputOption" placeholder="Color, size, type etc" name="inputOption[]" value="<?php echo($var['description']);?>"/>
-							<input type="text" class="form-control" id="inputQuantity" placeholder="Quantity" name="inputQuantity[]" value="<?php echo($var['quantity']);?>"/>
-							<input type="hidden" name="inputId[]" value="<?php echo($var['id']); ?>">
-							<div class="col-lg-1"><fontAwesome class="icon-remove"></fontAwesome></div>
+						elseif($var['quantity'] > 5)
+						{
+							echo( '<span class="label label-success stock-level" style="opacity: .7;">In-stock</span>' );
+						}
+						?><button class="btn btn-danger btn-xs remove-option" type="button" optionId="<?php echo($var['id']);?>" optionName="<?php echo($var['description']);?>"><i class="fa fa-times"></i></button>
 						</div>
 					</div>
 					<?php 
@@ -222,8 +224,29 @@
 					</div>
 				</div>
 			</form>
+
+			<!-- modal for remove option -->
+			<div class="modal fade" id="removeOptionModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-cross"></i></button>
+							<h4 class="modal-title">Remove Option</h4>
+						</div>
+						<div class="modal-body">
+							<p>Are you sure you want to remove the <b id="optremName"></b> option from <b><?php echo($product['name']);?></b>?</p>
+						</div>
+						<div class="modal-footer">
+							<button id="btn-remove-option" type="button" class="btn btn-lg btn-success"><i class="fa fa-trash-o"></i> Remove</button>
+							<button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Cancel</button>
+						</div>
+					</div><!-- end modal-content -->
+				</div><!-- end modal-dialog -->
+			</div><!-- end modal -->
+
 		</div><!-- end wrapper -->
 	</div><!-- end body-content -->
+
 	<script>
 	// Upload Images
 	function fileSelect(e){
