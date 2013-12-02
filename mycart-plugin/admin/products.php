@@ -70,6 +70,7 @@
 						$vth = $dbh->query("SELECT quantity
 										FROM product_variation
 										WHERE productId = '$prodId'
+										AND archive = '1'
 										ORDER BY quantity ASC");
 
 						$vth->setFetchMode(PDO::FETCH_ASSOC);

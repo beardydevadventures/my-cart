@@ -41,19 +41,21 @@ $(function(){
 
 		var oname = $(this).attr("optionName");
 		var oid = $(this).attr("optionId");
+		var pid = $(this).attr("productId");
 		$("#optremName").html(oname);
 		$("#btn-remove-option").attr("optremId", oid);
+		$("#btn-remove-option").attr("productId", pid);
 	});
 
 	// remove the option
 	$("#btn-remove-option").click(function(){
 		$("#removeOptionModal").modal("hide");
-		/*
-		var remurl = "../functions/delete.function.php?id=" + $(this).attr('prodremId');
+		
+		var remurl = "../functions/delopt.function.php?id=" + $(this).attr('optremId') + "&pid=" + $(this).attr('productId');
 		console.log(remurl);
 		window.location = remurl;
-		*/
-		alert("Write function to remove option! The Option ID is " + $(this).attr("optremId"));
+		
+		//alert("Write function to remove option! The Option ID is " + $(this).attr("optremId"));
 	});
 
 	// New Product - add new option panel

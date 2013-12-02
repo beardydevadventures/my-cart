@@ -1,4 +1,6 @@
-<?php include("../includes/cms-header.inc.php"); ?>
+<?php include("../includes/cms-header.inc.php"); 
+	include("../includes/db.inc.php"); 
+?>
 	<div class="body-content">
 		<div class="wrapper clearfix">
 			<div class="page-head clearfix">
@@ -8,7 +10,7 @@
 			</div>
 			<h4 class="inline">Edit Categories</h4>
 			
-			<ol class="sortable">
+			<!-- <ol class="sortable">
 				<li id="cate1">
 					<div>First Category</div>
 				</li>
@@ -26,8 +28,44 @@
 				<li id="cate3">
 					<div>Third Category</div>
 				</li>
-			</ol>
+			</ol> -->
+			<?php
+			echo("<ol class='sortable'>");
+			GetCategory(1, $dbh);
+	
+			function GetCategory($parentID, $db)
+			{
+				
+				$sth = $db->query("SELECT c.id, c.description
+						FROM category c
+						WHERE c.parentId = $parentID
+						ORDER BY c.description");
+			
+				$sth->setFetchMode(PDO::FETCH_ASSOC);
+			
+				while($row = $sth->fetch())
+				{
+					echo("<li>");
+					
+					$chh = $db->query("SELECT COUNT(*) AS NumChilds
+							FROM category c
+							WHERE c.parentId = " . $row['id']);
+					
+					$chh->setFetchMode(PDO::FETCH_ASSOC);
+					
+					$result = $chh->fetch();
 
+					// if ID has children, create arrow
+					echo(ucfirst($row['description']));
+					
+					echo("<ol>");
+					GetCategory($row['id'], $db);
+					echo("</ol>");
+					echo("</li>");
+				}	
+			}	
+			echo("</ol>");
+			?>
 			<button class="srtbl-h">Hierarchy</button>
 
 

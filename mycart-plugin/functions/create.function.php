@@ -102,12 +102,13 @@ for($i = 0; $i < count($popt); $i++)
 			$sth = $dbh->query("INSERT INTO product_variation
 					SET quantity='$pqnt[$i]',
 					description = '$popt[$i]',
-					productId = '$id'");
+					productId = '$id',
+					archive = '1'");
 		}
 	}
 }
 
-header("Location: ../admin/products.php");
+header("Location: ../admin/products-edit.php?id=" . $id);
 ?>
 
 

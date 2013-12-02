@@ -145,13 +145,14 @@
 				PRIMARY KEY(id),
 				description VARCHAR(30),
 				productId INT,
-				quantity INT
+				quantity INT,
+				archive TINYINT
 			);
 			
 			INSERT INTO product_variation 
-			(description, productId, quantity)
+			(description, productId, quantity, archive)
 			VALUES
-			('Your first Option', '1', '1');
+			('Your first Option', '1', '1', '1');
 			
 			CREATE TABLE IF NOT EXISTS setting
 			(

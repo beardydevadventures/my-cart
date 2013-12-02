@@ -162,6 +162,7 @@
 					$sth = $dbh->query("SELECT pv.id, pv.description, pv.quantity
 						FROM product p, product_variation pv
 						WHERE p.id = pv.productId
+						AND pv.archive = 1
 						AND p.id = '$id'");
 		
 					$sth->setFetchMode(PDO::FETCH_ASSOC);
@@ -172,7 +173,7 @@
 					<div class="form-group">
 						<label for="inputOption1" class="col-lg-2 control-label">Option</label>
 						<div class="col-lg-10">
-							<input disabled type="text" class="form-control" id="inputOption" placeholder="Color, size, type etc" name="inputOption[]" value="<?php echo($var['description']);?>"/><!--
+							<input type="text" readonly="readonly" class="form-control" id="inputOption" placeholder="Color, size, type etc" name="inputOption[]" value="<?php echo($var['description']);?>"/><!--
 						 --><input type="text" class="form-control" id="inputQuantity" placeholder="Quantity" name="inputQuantity[]" value="<?php echo($var['quantity']);?>"/><!--
 					 	 --><input type="hidden" name="inputId[]" value="<?php echo($var['id']); ?>"><!--
 						 --><?php 
@@ -188,7 +189,7 @@
 						{
 							echo( '<span class="label label-success stock-level" style="opacity: .7;">In-stock</span>' );
 						}
-						?><button class="btn btn-danger btn-xs remove-option" type="button" optionId="<?php echo($var['id']);?>" optionName="<?php echo($var['description']);?>"><i class="fa fa-times"></i></button>
+						?><button class="btn btn-danger btn-xs remove-option" type="button" optionId="<?php echo($var['id']);?>" optionName="<?php echo($var['description']);?>" productId="<?php echo($id);?>"><i class="fa fa-times"></i></button>
 						</div>
 					</div>
 					<?php 
