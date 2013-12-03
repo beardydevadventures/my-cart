@@ -68,7 +68,7 @@
 								</div>
 								<div class="col-lg-3">Body size</div>
 								<div class="col-lg-3 relative">
-									<select class="form-control heading-size" name="body-size">
+									<select class="form-control body-size" name="body-size">
 										<option value='<?php echo($colArray['body-size']); ?>' selected='selected'><?php echo($colArray['body-size']); ?> (selected)</option>
 										<option value='10px'>10px</option>
 										<option value='11px'>11px</option>

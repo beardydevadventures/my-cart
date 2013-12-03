@@ -1,16 +1,114 @@
-$(function(){
+$(function () {
 	/* ========================================= CATEGORIES PAGE functions ================ */
+	// initiate the Nested Sortables plug-in
 	$(".sortable").nestedSortable({
 		handle: "div",
 		items: "li",
 		toleranceElement: "> div",
-		maxLevels: "2"
+		maxLevels: "2",
+		listType: "ol",
+		tabSize: "10",
+		placeholder: "sortable-highlight"
 	});
 
-	$(".srtbl-h").on("click", function(){
+	// when first loads swap the sub-categories with the right name
+	$(".sortable").find("ol").find("span").html("Sub-category");
+
+	// when a sort is finished moving, swap the sub-category and category names
+	$(".sortable").on("sortdeactivate", function(e){
+		addData();
+		console.log("there's a CHANGE!");
+		$(".sortable > li > ol > li > div > span").html("Sub-category");
+		$(".sortable > li > div > span").html("Category");
+	});
+
+	// New category panel
+	function addCategory(){
+		// find out how many categories already exist
+		var numItems = $(".sortable li").length;
+		
+		// create a 'new' option pre-filled with last option and increment id's
+		var htmlFormGroup = '<li id="category_' + (numItems + 1) + '"><div class="input-group"><span class="input-group-addon">Category</span><input type="text" class="form-control category-input" id="inputCategory' + (numItems + 1) + '" name="inputCategory' + (numItems + 1) + '" placeholder="Enter a category"/></div></li>';
+
+		$(".sortable > li:last-child").after(htmlFormGroup);
+		$(".sortable > li:last-child > div > input").focus();
+		
+		
+	}
+
+	// Add new category button
+	$("#addCategory").on("click", addCategory);
+
+	//Update when things change
+	$(".form-control").change(addData());
+	$(document).on('change', ".category-input", function(e){
+		addData();
+	});
+	
+	
+	$(".form-control").change(function(e){
+		//console.log($(this).parent());
+	});	
+	
+	//$(".sortable-btn").on("click", function(e){
+	function addData() {
+		
+		//creates a json feed and stores it in a hidden field.
 		var test = $(".sortable").nestedSortable("toHierarchy");
 		console.log(test);
-	});
+		
+		var content = "";
+		
+		var catjson = '{ "categories" : [';
+		
+		for(var i = 0; i < test.length; i++)
+		{
+			catjson += '{';
+			
+			catjson += '"parentID" : "1", "catDesc" : "' + $("#inputCategory" + test[i]["id"]).val() + '" ';
+			
+			console.log("PARENT: " + test[i].id + ", set parent to NULL in DB");
+			console.log($("#inputCategory" + test[i]["id"]).val());
+			
+			if(test[i].children)
+			{
+				catjson += ', "children": [';
+				
+				for(var j = 0; j < test[i].children.length; j++)
+				{
+					console.log("CHILD: " + test[i].children[j].id + ", set parent to " + test[i].id + " in DB");
+					console.log($("#inputCategory" + test[i].children[j].id).val());
+					
+					catjson += '{"parentID":"' + test[i].id + '", "catDesc":"' + $("#inputCategory" + test[i].children[j].id).val() + '"}';
+					
+					if((j + 1) != test[i].children.length)
+					{
+						catjson += ', ';
+					}
+				}
+				
+				catjson += ']';
+			}	
+			
+			catjson += '}';
+			
+			if((i + 1) != test.length)
+			{
+				catjson += ', ';
+			}
+		}
+
+		catjson += ']}';	
+		
+		console.log(catjson);
+		
+		content += "<input type='hidden' name='categories' value='" + catjson + "'/>";
+
+		$(".content").html(content);
+	}
+	//});
+
+
 
 
 	/* ========================================= PRODUCT PAGE functions ================ */
@@ -181,6 +279,9 @@ $(function(){
 		headingColor = e.color.toHex();
 		$(".mycart-heading").css("color", headingColor);
 		$(".mycart-thc").css("background-color", headingColor);
+	});
+	$('.heading-color').bind('keyup', function(){
+		$(this).ColorPickerSetColor(this.value);
 	});
 
 	$('.heading-size').on("change", function(){
