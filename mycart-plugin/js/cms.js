@@ -176,6 +176,14 @@ $(function () {
 	// New Product -- add new option button
 	$("#addOption").on("click", addOption);
 
+	// New Product -- cancelling a new option
+    $(document).on("click", ".remove-cancel", function(){
+        // disable the inputs
+        $(this).parent().parent().find("input").attr('disabled', 'disabled');
+        // hide the div
+        $(this).parent().parent().hide(200);
+    });
+
 	// New Product -- add a new option when the user hits 'enter'
 	$('.form-selecting').on("keypress", function(e) {
 		if(e.keyCode == 13 || e.keyCode == 9)
