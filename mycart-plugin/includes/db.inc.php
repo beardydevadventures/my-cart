@@ -1,6 +1,6 @@
 <?php
 $host="localhost";
-$dbname="mycart-test";
+$dbname="mycart-test3";
 $user="root";
 $pass="";
 

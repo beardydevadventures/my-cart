@@ -16,6 +16,7 @@ $(function () {
 
 	// when a sort is finished moving, swap the sub-category and category names
 	$(".sortable").on("sortdeactivate", function(e){
+		addData();
 		console.log("there's a CHANGE!");
 		$(".sortable > li > ol > li > div > span").html("Sub-category");
 		$(".sortable > li > div > span").html("Category");
@@ -27,47 +28,85 @@ $(function () {
 		var numItems = $(".sortable li").length;
 		
 		// create a 'new' option pre-filled with last option and increment id's
-		var htmlFormGroup = '<li id="category_' + (numItems + 1) + '"><div class="input-group"><span class="input-group-addon">Category</span><input type="text" class="form-control" id="inputCategory' + (numItems + 1) + '" name="inputCategory' + (numItems + 1) + '" placeholder="Enter a category"/></div></li>';
+		var htmlFormGroup = '<li id="category_' + (numItems + 1) + '"><div class="input-group"><span class="input-group-addon">Category</span><input type="text" class="form-control category-input" id="inputCategory' + (numItems + 1) + '" name="inputCategory' + (numItems + 1) + '" placeholder="Enter a category"/></div></li>';
 
 		$(".sortable > li:last-child").after(htmlFormGroup);
 		$(".sortable > li:last-child > div > input").focus();
+		
+		
 	}
 
 	// Add new category button
 	$("#addCategory").on("click", addCategory);
 
-	$(".sortable-btn").on("click", function(e){
-		e.preventDefault();
+	//Update when things change
+	$(".form-control").change(addData());
+	$(document).on('change', ".category-input", function(e){
+		addData();
+	});
+	
+	
+	$(".form-control").change(function(e){
+		//console.log($(this).parent());
+	});	
+	
+	//$(".sortable-btn").on("click", function(e){
+	function addData() {
+		
+		//creates a json feed and stores it in a hidden field.
 		var test = $(".sortable").nestedSortable("toHierarchy");
 		console.log(test);
-
-		var num = 0;
-		var cat = "";
+		
 		var content = "";
-		var inputs = "";
-
-		for(var i=0; i<test["length"]; i++)
+		
+		var catjson = '{ "categories" : [';
+		
+		for(var i = 0; i < test.length; i++)
 		{
-			// content += "Category no." + (i + 1) + " is ID " + test[i]["id"] + "<br/>";
-			content += "Category " + (i+1) + " is " + $("#inputCategory" + test[i]["id"]).val() + "<br/>";
-			// inputs += "<input type='hidden' name='catID" + (i+1) + "' value='" + (i+1)"'/>";
-			// inputs += "<input type='hidden' name='cat"
-			// inputs += "<input type='hidden' name='catID" + (i + 1) + "' value='" + test[i]["id"] + "'/>";
-			// inputs += "<input type='hidden' name='catDesc" + (i + 1) + "' value='" + $(". "test[i]["id"] + "'/>";
-			// inputs += "<input type='hidden' name='catParent" + (i + 1) + "' value='" + i + "'/>";
-
-			if(test[i]["children"])
+			catjson += '{';
+			
+			catjson += '"parentID" : "1", "catDesc" : "' + $("#inputCategory" + test[i]["id"]).val() + '" ';
+			
+			console.log("PARENT: " + test[i].id + ", set parent to NULL in DB");
+			console.log($("#inputCategory" + test[i]["id"]).val());
+			
+			if(test[i].children)
 			{
-				// content += "Children exist!<br/>";
-				for(var j=0; j<test[i]["children"]["length"]; j++)
+				catjson += ', "children": [';
+				
+				for(var j = 0; j < test[i].children.length; j++)
 				{
-					content += "Sub-category " + (j+1) + " is " + $("#inputCategory" + test[i]["children"][j]["id"]).val() + "<br/>";
+					console.log("CHILD: " + test[i].children[j].id + ", set parent to " + test[i].id + " in DB");
+					console.log($("#inputCategory" + test[i].children[j].id).val());
+					
+					catjson += '{"parentID":"' + test[i].id + '", "catDesc":"' + $("#inputCategory" + test[i].children[j].id).val() + '"}';
+					
+					if((j + 1) != test[i].children.length)
+					{
+						catjson += ', ';
+					}
 				}
+				
+				catjson += ']';
+			}	
+			
+			catjson += '}';
+			
+			if((i + 1) != test.length)
+			{
+				catjson += ', ';
 			}
 		}
 
+		catjson += ']}';	
+		
+		console.log(catjson);
+		
+		content += "<input type='hidden' name='categories' value='" + catjson + "'/>";
+
 		$(".content").html(content);
-	});
+	}
+	//});
 
 
 
@@ -100,19 +139,21 @@ $(function () {
 
 		var oname = $(this).attr("optionName");
 		var oid = $(this).attr("optionId");
+		var pid = $(this).attr("productId");
 		$("#optremName").html(oname);
 		$("#btn-remove-option").attr("optremId", oid);
+		$("#btn-remove-option").attr("productId", pid);
 	});
 
 	// remove the option
 	$("#btn-remove-option").click(function(){
 		$("#removeOptionModal").modal("hide");
-		/*
-		var remurl = "../functions/delete.function.php?id=" + $(this).attr('prodremId');
+		
+		var remurl = "../functions/delopt.function.php?id=" + $(this).attr('optremId') + "&pid=" + $(this).attr('productId');
 		console.log(remurl);
 		window.location = remurl;
-		*/
-		alert("Write function to remove option! The Option ID is " + $(this).attr("optremId"));
+		
+		//alert("Write function to remove option! The Option ID is " + $(this).attr("optremId"));
 	});
 
 	// New Product - add new option panel
@@ -134,6 +175,14 @@ $(function () {
 
 	// New Product -- add new option button
 	$("#addOption").on("click", addOption);
+
+	// New Product -- cancelling a new option
+    $(document).on("click", ".remove-cancel", function(){
+        // disable the inputs
+        $(this).parent().parent().find("input").attr('disabled', 'disabled');
+        // hide the div
+        $(this).parent().parent().hide(200);
+    });
 
 	// New Product -- add a new option when the user hits 'enter'
 	$('.form-selecting').on("keypress", function(e) {
@@ -238,6 +287,9 @@ $(function () {
 		headingColor = e.color.toHex();
 		$(".mycart-heading").css("color", headingColor);
 		$(".mycart-thc").css("background-color", headingColor);
+	});
+	$('.heading-color').bind('keyup', function(){
+		$(this).ColorPickerSetColor(this.value);
 	});
 
 	$('.heading-size').on("change", function(){

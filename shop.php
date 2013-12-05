@@ -13,6 +13,7 @@
 	<!-- mycart-plugin styling -->
 	<link rel="stylesheet" type="text/css" href="mycart-plugin/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="mycart-plugin/css/store.css"/>
+	<link rel="stylesheet" type="text/css" href="mycart-plugin/css/customize.php"/>
 
 	<!-- mycart-plugin fancybox libraries -->
 	<link rel="stylesheet" href="mycart-plugin/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />

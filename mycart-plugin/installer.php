@@ -145,13 +145,14 @@
 				PRIMARY KEY(id),
 				description VARCHAR(30),
 				productId INT,
-				quantity INT
+				quantity INT,
+				archive TINYINT
 			);
 			
 			INSERT INTO product_variation 
-			(description, productId, quantity)
+			(description, productId, quantity, archive)
 			VALUES
-			('Your first Option', '1', '1');
+			('Your first Option', '1', '1', '1');
 			
 			CREATE TABLE IF NOT EXISTS setting
 			(
@@ -170,6 +171,17 @@
 			('body-font', ''),
 			('heading-color', ''),
 			('body-color', ''),
+			('heading-size', ''),
+			('body-size', ''),
+			('link-color', ''),
+			('link-hover-color', ''),
+			('link-active-color', ''),
+			('menu-color', ''),
+			('menu-font-color', ''),
+			('sub-menu-color', ''),
+			('sub-menu-font-color', ''),
+			('sub-menu-hover-color', ''),
+			('sub-menu-font-hover-color', ''),
 			('button-color', ''),
 			('button-font-color', ''),
 			('button-hover-color', ''),

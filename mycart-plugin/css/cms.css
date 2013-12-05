@@ -140,6 +140,10 @@ html, body {
 						login 
 ===================================================== */
 
+.db-details input {
+	margin-bottom: 5px;
+}
+
 .signin-container {
 	background-color: #ddd;
 	padding: 15px 20px;
@@ -153,7 +157,7 @@ html, body {
 }
 
 .signin-container i {
-	color: #555;
+	color: #666;
 	font-size: 18px;
 	width: 11px;
 }

@@ -330,7 +330,10 @@
 .mycart-plugin .mycart-plugin-btn,
 .mycart-plugin .mycart-plugin-btn:hover,
 .mycart-plugin .mycart-plugin-btn:focus,
-.mycart-plugin .mycart-plugin-btn:active {
+.mycart-plugin .mycart-plugin-btn:active,
+.mycart-plugin .mycart-plugin-a-button,
+.mycart-plugin .mycart-plugin-a-button:hover,
+.mycart-plugin .mycart-plugin-a-button:active {
 	-webkit-appearance: none !important;
 	appearance: none !important;
 	display: inline-block !important;
@@ -353,6 +356,14 @@
 	background-image: none !important;
 	text-transform: none !important;
 	text-decoration: none !important;
+}
+
+.mycart-plugin .mycart-plugin-a-button {
+	display: none !important;
+}
+
+.mycart-plugin .mycart-plugin-a-button.mycart-plugin-show {
+	display: inline-block !important;
 }
 
 .mycart-plugin .mycart-plugin-btn i {

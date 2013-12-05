@@ -22,6 +22,9 @@ $(document).ready(function() {
 		}
 	});
 
+	// hide the checkout now button
+	$(".mycart-plugin-hide").hide(0);
+
 	// Disable opening and closing animations, change title type
 	$(".fancybox-effects-b").fancybox({
 		openEffect  : 'fade',

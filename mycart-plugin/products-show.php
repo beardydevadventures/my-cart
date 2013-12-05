@@ -9,7 +9,7 @@
 	else
 	{
 		//inputs mycart nav and gets db
-		// include('includes/cart.inc.php');
+		//include('includes/cart.inc.php');
 		include('includes/db.inc.php');
 		include('includes/colorArray.inc.php');
 		include('includes/nav.inc.php');
@@ -63,11 +63,12 @@
 					//}
 					?>
 					<div class="mycart-plugin-form-group">
-						<select class="mycart-plugin-select-option" name='vr'>
+						<select class="mycart-plugin-select-option" name='vr' id='vr'>
 						<?php 
 						$opsth = $dbh->query("SELECT p.id, pv.productId, pv.description, pv.id AS Var
 								FROM product p, product_variation pv
 								WHERE p.id = pv.productId
+								AND pv.archive = '1'
 								AND p.id = $id");
 						
 						$opsth->setFetchMode(PDO::FETCH_ASSOC);
@@ -80,10 +81,11 @@
 						</select>
 					</div>
 					<div class="mycart-plugin-form-group">
-						<label>Qty <input class="mycart-plugin-input-text-small" type="text" name='qt' value="1" size="3" maxlength="3" /><input type='hidden' name='id' value='<?php echo($id); ?>'></label>
+						<label>Qty <input class="mycart-plugin-input-text-small" type="text" name='qt' id='qt' value="1" size="3" maxlength="3" /><input type='hidden' name='id' id='id' value='<?php echo($id); ?>'></label>
 					</div>
 					<div class="mycart-plugin-form-group">
 						<button class="mycart-plugin-btn-success" type="submit">Add to cart</button>
+						<a class='mycart-plugin-hide mycart-plugin-page-link mycart-plugin-a-button' href='mycart-plugin/cart.php'>Added to cart. Checkout Now!</a>
 					</div>
 				</form>
 			</div>
@@ -98,6 +100,7 @@
 	function CallPage(e) {
 		e.preventDefault();
 		var data = e.data;
+		console.log(data.method);
 		console.log(e.currentTarget.href);
 		$.ajax({
 			url: e.currentTarget.href,
@@ -110,56 +113,45 @@
 		});
 	}
 
-	// function CallForm(e) {
-	// 	e.preventDefault();
-	// 	var data = e.data;
-	// 	// console.log(e.currentTarget.href);
-	// 	$.ajax({
-	// 		url: 'mycart-plugin/products-show.php',
-	// 		type: data.method,
-	// 		data: data.vars,
-	// 		dataType: 'html',
-	// 		success: function(data) {
-	// 			$(".mycart-plugin-store").html(data);
-	// 		}
-	// 	});
-	// }
-
-	// $(".mycart-plugin .mycart-plugin-page-link").on('click', {
-	// 	vars: { }, // leave blank if empty
-	// 	method: 'post'
-	// }, CallPage);
-
-	// $(".mycart-plugin .mycart-plugin-form-submit").on('submit', {
-	// 	vars: { $(this).serialize() },
-	// 	method: 'post'
-	// }, CallForm);
-
-
-	$(".mycart-plugin .mycart-plugin-form-submit").on('submit', function(e){
+	function CallForm(e) {
+		$(".mycart-plugin .mycart-plugin-a-button").addClass("mycart-plugin-show");
 		e.preventDefault();
-			e.preventDefault();
-		var data = e.data;
-		// console.log(e.currentTarget.href);
+		var data = e.data.vars;
+		var qt = $("#qt").val();
+		var vr = data.vr.options[data.vr.selectedIndex].value;
+		console.log(qt);
+
+		url = 'mycart-plugin/includes/cart.inc.php?id=' + data.id + "&vr=" + vr + "&qt=" + qt
+		console.log(url);
 		$.ajax({
-			url: 'mycart-plugin/products-show.php',
+			url: url,
 			type: data.method,
-			data: data.vars,
-			dataType: 'html',
-			success: function(data) {
-				$(".mycart-plugin-store").html(data);
+			dataType: 'text',
+			success: function(d) {
+				console.log("Product " + data.id + " added!");
+				console.log("CART TOTAL = " + d);
+				$.ajax({
+					url: "mycart-plugin/mycart-plugin-cart.php",
+					dataType: 'html',
+					success: function(data){
+						$(".mycart-plugin-cart").html(data);
+					}
+				});
 			}
 		});
-	});
+	}
 
-	// $(".mycart-plugin .mycart-plugin-form-submit").on('submit', {
-	// 	vars: $(this).serialize(),
-	// 	method: 'get'
-	// }, CallForm);
+	$(".mycart-plugin .mycart-plugin-page-link").on('click', {
+		vars: { }, // leave blank if empty
+		method: 'post'
+	}, CallPage);
 
-	// $(".mycart-plugin .mycart-plugin-form-submit").on('submit', {
-	// 	vars: $(this).serialize(),
-	// 	method: 'post'
-	// }, CallForm);	
-
+	$(".mycart-plugin .mycart-plugin-form-submit").on('submit', {
+		vars: {
+			id: document.getElementById("id").value,
+			vr: document.getElementById("vr"),
+			qt: document.getElementById("qt").value
+		},
+		method: 'post'
+	}, CallForm);
 	</script>

@@ -30,6 +30,7 @@
 							FROM product_variation pv, product p
 							WHERE pv.productID = p.id
 							AND p.archive = 1
+							AND pv.archive = 1
 							AND pv.quantity = 0");
 
 			$sth->setFetchMode(PDO::FETCH_ASSOC);

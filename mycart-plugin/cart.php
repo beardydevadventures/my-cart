@@ -63,9 +63,9 @@
 				$rowTot = round($rowTot, 2);
 				
 				echo("<tr>
-						<td><image src='" . $row['image'] . "' height='50' width='40' /></td>
-						<td><a title='View Item' href='products-show.php?id=". $row['id'] . "'>" . $row['name'] . "</a></td>
-						<td><form action='cart.php' method='get'><select name='nvr' onchange='this.form.submit()'>");
+						<td><img src='mycart-plugin/" . $row['image'] . "' height='50' width='40' /></td>
+						<td><a class='.mycart-plugin-page-link' title='View Item' href='mycart-plugin/products-show.php?id=". $row['id'] . "'>" . $row['name'] . "</a></td>
+						<td><form action='mycart-plugin/cart.php' method='get'><select name='nvr' onchange='this.form.submit()'>");
 				
 				$opsth = $dbh->query("SELECT p.id, pv.productId, pv.description, pv.id AS Var
 								FROM product p, product_variation pv
@@ -90,26 +90,26 @@
 					<td><input type='hidden' name='upd' value='" . $row['id'] . "'><input class='mycart-plugin-input-text-small' type='text' name='nqt' onchange='this.form.submit()' min='0' size='3' maxlength='3' value='" . $item[1] . "'></form></td>
 					<td>$" . $row['cost'] ."</td>
 					<td>$" . number_format((float)$rowTot, 2, '.', '') . "</td>
-					<td><a class='mycart-plugin-btn mycart-plugin-btn-danger' href='cart.php?rid=". $row['id'] . "&rvr=" . $item[2] . "'><i class='fa fa-times mycart-plugin-desktop-tag' title='Remove Item' alt='Remove' ></i><span class='mycart-plugin-mobile-tag'>Remove item</span></a></td>
+					<td><a class='mycart-plugin-page-link mycart-plugin-btn mycart-plugin-btn-danger' href='mycart-plugin/cart.php?rid=". $row['id'] . "&rvr=" . $item[2] . "'><i class='fa fa-times mycart-plugin-desktop-tag' title='Remove Item' alt='Remove' ></i><span class='mycart-plugin-mobile-tag'>Remove item</span></a></td>
 					</tr>");
 			}
 			?>
 			</tbody>
 			</table>
-			<p><b>Total</b></p>
-			<p><b>$<?php echo(number_format((float)$cartTot, 2, '.', ''));?></b></p>
+			<h4>Total</h4>
+			<h4>$<?php echo(number_format((float)$cartTot, 2, '.', ''));?></h4>
 			<a class="mycart-plugin-btn mycart-plugin-btn-success" href="checkout.php">Checkout</a>
 			<?php 
 		}
 		else
 		{
-			echo('<p>There are no items in your cart. <a class="mycart-plugin-link" href="products.php">Continue shopping!</a></p>');
+			echo('<p>There are no items in your cart. <a class="mycart-plugin-page-link mycart-plugin-link" href="mycart-plugin/mycart-plugin-store.php">Continue shopping!</a></p>');
 		}
 	?>
 	<br/>
 	<div class="shipping-div">
-		<h2>Shipping</h2>
-		<a class="mycart-plugin-link">Calculate shipping</a>
+		<h4>Shipping</h4>
+		<p>Shipping costs are included!</p>
 	</div>
 </div><!-- cart page -->
 <div class="clearfix"></div>
@@ -126,6 +126,15 @@ function CallPage(e) {
 		dataType: 'html',
 		success: function(data) {
 			$(".mycart-plugin-store").html(data);
+			// yo MATT! here, on success call ANOTHER ajax call to
+			// update the cart div
+			$.ajax({
+				url: "mycart-plugin/mycart-plugin-cart.php",
+				dataType: 'html',
+				success: function(data){
+					$(".mycart-plugin-cart").html(data);
+				}
+			});
 		}
 	});
 }
