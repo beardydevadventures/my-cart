@@ -1,4 +1,4 @@
-<div class="mycart-plugin-nav mycart-plugin-clearfix" style="background-color: <?php echo($colArray['primary-color']); ?> !important;">
+<div class="mycart-plugin-nav mycart-plugin-clearfix" style="background-color: <?php echo($colArray['menu-color']); ?> !important; color: <?php echo($colArray['menu-font-color']); ?> !important;">
 <?php  
 	echo("<ul class='clearfix'>");
 
@@ -9,8 +9,7 @@
 		
 		$sth = $db->query("SELECT c.id, c.description
 				FROM category c
-				WHERE c.parentId = $parentID
-				ORDER BY c.description");
+				WHERE c.parentId = $parentID");
 	
 		$sth->setFetchMode(PDO::FETCH_ASSOC);
 	
@@ -34,10 +33,10 @@
 			else
 			{
 				// else create link	
-				echo("<a class='mycart-plugin-page-link' href='mycart-plugin/mycart-plugin-store.php?id=". $row['id'] . "'>" . ucfirst($row['description']) ."</a>");
+				echo("<a class='mycart-plugin-page-link' style='font-family: " . $col['heading-font'] . "!important;font-family: " . $col['menu-font-color'] . "!important;' href='mycart-plugin/mycart-plugin-store.php?id=". $row['id'] . "'>" . ucfirst($row['description']) ."</a>");
 			}
 			
-			echo("<ul style='background-color: " . $col['secondary-color'] . "!important;'>");
+			echo("<ul style='background-color: " . $col['sub-menu-color'] . "!important;'>");
 			GetCategory($row['id'], $db, $col);
 			echo("</ul>");
 			echo("</li>");

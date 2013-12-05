@@ -40,15 +40,11 @@ $(function () {
 	$("#addCategory").on("click", addCategory);
 
 	//Update when things change
-	$(".form-control").change(addData());
+	//$(".form-control").change(addData());
+	
 	$(document).on('change', ".category-input", function(e){
 		addData();
 	});
-	
-	
-	$(".form-control").change(function(e){
-		//console.log($(this).parent());
-	});	
 	
 	//$(".sortable-btn").on("click", function(e){
 	function addData() {
@@ -106,7 +102,6 @@ $(function () {
 
 		$(".content").html(content);
 	}
-	//});
 
 
 

@@ -5,7 +5,7 @@
 ?>	
 <div class="mycart-plugin-content">
 	<h2>Register</h2>
-	<form class="mycart-plugin-checkout-form" action="functions/signup.function.php" method="post">
+	<form name="register" id="register" class="mycart-plugin-checkout-form" action="mycart-plugin/functions/signup.function.php" method="post">
 		<div class="mycart-plugin-checkout">
 			<h3>Your Details</h3>
 			<div class="mycart-plugin-form-group">
@@ -124,6 +124,26 @@ function CallPage(e) {
 		}
 	});
 }
+
+//sends the form data when submitted
+$("#register").submit(function(e)
+{
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action");
+    $.ajax({
+        url : formURL,
+        type: "POST",
+        data : postData,
+        success:function() 
+        {
+			alert('working');
+        }
+    });
+    e.preventDefault(); //STOP default action
+});
+
+$("#register").submit(); //Submit  the FORM
+//end form submit
 
 $(".mycart-plugin .mycart-plugin-page-link").on('click', {
 	vars: {}, // leave blank if empty

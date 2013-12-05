@@ -10,7 +10,7 @@
 	<div class="pushy-footer-wrapper">
 	<div class="header-content">
 		<div class="wrapper clearfix">
-				<img class="client-logo" src="mycart-plugin/img/placeholder-logo.png" alt="Logo"/>
+				<img class="client-logo" src="mycart-plugin/img/logo-mycart.png" width="250" height="auto" style="padding:15px" alt="Logo"/>
 		</div><!-- end wrapper -->
 	</div><!-- end header-content -->
 	<div class="body-content">

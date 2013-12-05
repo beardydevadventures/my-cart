@@ -1,4 +1,9 @@
-<?php include("../includes/cms-header.inc.php"); ?>
+<?php 
+include("../includes/cms-header.inc.php"); 
+
+$srt = isset($_GET['srt']) ? $_GET['srt'] : '';
+$srch = isset($_GET['srch']) ? $_GET['srch'] : '';
+?>
 	<div class="body-content">
 		<div class="wrapper clearfix">
 			<div class="page-head clearfix">
@@ -7,18 +12,23 @@
 				</div>
 				<div class="page-nav">
 					<div class="page-nav-1">
-						<select class="form-control">
-							<option>View All Orders</option>
-							<option>Sort by Undispatched</option>
-							<option>Sort by Date Ordered</option>
-						</select>
+						<form action='orders.php' method='get'>
+							<select class="form-control" name="srt" onchange='this.form.submit()'>
+								<option>Sort By</option>
+								<option value="DESC">Sort by Dispatched</option>
+								<option value="ASC">Sort by Undispatched</option>
+								<option value="">Sort by Date Ordered</option>
+							</select>
+						</form>
 					</div>
 					<div class="page-nav-2">
 						<div class="input-group">
-							<input type="search" class="form-control" placeholder="Search Orders"/>
-							<span class="input-group-addon">
-								<i class="fa fa-search"></i>
-							</span>
+							<form action='orders.php' method='get'>
+								<input type="search" class="form-control" name="srch" onchange='this.form.submit()' placeholder="Search Orders"/>
+							</form>	
+								<span class="input-group-addon">
+									<i class="fa fa-search"></i>
+								</span>
 						</div><!-- end input-group -->
 					</div>
 				</div><!-- end page-nav -->
@@ -37,11 +47,27 @@
 				<tbody>
 					<?php 
 					include('../includes/db.inc.php');
-					
-					$order = $dbh->query("SELECT o.id, o.dateTimeOrdered, o.dateTimeSent, c.fname, c.lname
-							FROM `order` o, customer c
-							WHERE o.customerId = c.id");
-					
+					if($srch != '')
+					{
+						$order = $dbh->query("SELECT o.id, o.dateTimeOrdered, o.dateTimeSent, c.fname, c.lname
+								FROM `order` o, customer c
+								WHERE o.customerId = c.id
+								AND (c.fname LIKE '%$srch%' OR o.id LIKE '%$srch%')
+								");
+					}
+					else if($srt != '')
+					{
+						$order = $dbh->query("SELECT o.id, o.dateTimeOrdered, o.dateTimeSent, c.fname, c.lname
+								FROM `order` o, customer c
+								WHERE o.customerId = c.id
+								ORDER BY o.dateTimeSent $srt");
+					}
+					else
+					{
+						$order = $dbh->query("SELECT o.id, o.dateTimeOrdered, o.dateTimeSent, c.fname, c.lname
+								FROM `order` o, customer c
+								WHERE o.customerId = c.id");
+					}
 					$order->setFetchMode(PDO::FETCH_ASSOC);
 					
 					while($oItem = $order->fetch())

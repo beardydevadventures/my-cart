@@ -5,6 +5,6 @@
 	{
 		unset($_SESSION['uid']);
 		
-		header('Location: ../products.php');
+		include('../mycart-plugin-store.php');
 	}
 ?>

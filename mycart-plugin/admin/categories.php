@@ -14,40 +14,6 @@
 			<form class="categories form-horizontal" role="form" method="post" action="../functions/categories.function.php">
 				<div class="form-group">
 					<div class="col-lg-6">
-						<!-- <ol class="sortable list-unstyled">
-							<li id="category_1">
-								<div class="input-group">
-									<span class="input-group-addon">Category</span>
-									<input type="text" class="form-control" id="inputCategory1" name="inputCategory1" placeholder="Enter a category" value="Shirts"/>
-								</div>
-							</li>
-							<li id="category_2">
-								<div class="input-group">
-									<span class="input-group-addon">Category</span>
-									<input type="text" class="form-control" id="inputCategory2" name="inputCategory2" placeholder="Enter a category" value="Jackets"/>
-								</div>
-								<ol>
-									<li id="category_3">
-										<div class="input-group">
-											<span class="input-group-addon">Sub-category</span>
-											<input type="text" class="form-control" id="inputCategory3" name="inputCategory3" placeholder="Enter a category" value="Shorts"/>
-										</div>
-									</li>
-								</ol>
-							</li>
-							<li id="category_4">
-								<div class="input-group">
-									<span class="input-group-addon">Category</span>
-									<input type="text" class="form-control" id="inputCategory4" name="inputCategory4" placeholder="Enter a category" value="Jeans"/>
-								</div>
-							</li>
-							<li id="category_5">
-								<div class="input-group">
-									<span class="input-group-addon">Category</span>
-									<input type="text" class="form-control" id="inputCategory5" name="inputCategory5" placeholder="Enter a category" value="Misc"/>
-								</div>
-							</li>
-						</ol>  -->
 						<?php
 							echo("<ol class='sortable list-unstyled'>");
 							$i = 1;
@@ -58,8 +24,7 @@
 								
 								$sth = $db->query("SELECT c.id, c.description, c.parentId
 										FROM category c
-										WHERE c.parentId = $parentID
-										ORDER BY c.description");
+										WHERE c.parentId = $parentID");
 							
 								$sth->setFetchMode(PDO::FETCH_ASSOC);
 							
@@ -78,8 +43,6 @@
 										echo('<span class="input-group-addon">');
 											echo('Category');
 										echo('</span>');
-										echo('<input type="hidden" name="catID[]" value="' . $row["id"] . '"/>
-											<input type="hidden" name="catParent[]" value="' . $row['parentId'] . '"/>');
 										echo('<input type="text" class="form-control" id="inputCategory' . $i . '" name="inputCategory' . $i . '" placeholder="Enter a category" value="' . ucfirst($row['description']) . '"/>');
 									echo("</div><ol>");
 										GetCategory($row['id'], $db, $i);

@@ -24,7 +24,7 @@
 			'L_PAYMENTREQUEST_0_NAME0' => 'Mycart Checkout',
 			'L_PAYMENTREQUEST_0_DESC0' => 'Checkout',
 			'L_PAYMENTREQUEST_0_AMT0' => "$totAmount",
-			'L_PAYMENTREQUEST_0_QTY0' => '1',
+			'L_PAYMENTREQUEST_0_QTY0' => '1'
 	);
 	
 	$paypal = new Paypal();

@@ -46,5 +46,8 @@ for($i = 0; $i < count($cat['categories']); $i++)
 	}
 	
 	echo("<br/>");
+	
+	//go to cms customisation page
+		header( 'Location: ../admin/categories.php' );
 }
 ?>

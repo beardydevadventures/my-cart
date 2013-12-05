@@ -1,4 +1,9 @@
-<?php include("../includes/cms-header.inc.php"); ?>
+<?php 
+
+	include("../includes/cms-header.inc.php"); 
+	$srch = isset($_GET['srch']) ? $_GET['srch'] : '';
+
+?>
 	<div class="body-content">
 		<div class="wrapper clearfix">
 			<div class="page-head clearfix">
@@ -11,7 +16,9 @@
 					</div><!--  end page-nav-1 -->
 					<div class="page-nav-2">
 						<div class="input-group">
-							<input type="search" class="form-control" placeholder="Search Orders"/>
+							<form action='products.php' method='get'>
+								<input type="search" class="form-control" name="srch" onchange='this.form.submit()' placeholder="Search Products"/>
+							</form>
 							<span class="input-group-addon">
 								<i class="fa fa-search"></i>
 							</span>
@@ -37,7 +44,27 @@
 				//gets the products as well as its most recent price
 				$dateTime = date("Y-m-d H:i:s");
 				
-				$sth = $dbh->query("SELECT id, name, cost, image, dateTime
+				if($srch != '')
+				{
+					$sth = $dbh->query("SELECT id, name, cost, image, dateTime
+
+									FROM (
+									SELECT p.id, p.name, p.image, pp.cost, pp.dateTime
+									FROM product p, category c, product_category pc, product_cost pp
+									WHERE p.id = pc.productId
+									AND c.id = pc.categoryId
+									AND p.archive = 1
+									AND p.id = pp.productId
+									AND p.name LIKE '%$srch%'
+									ORDER BY pp.dateTime DESC
+									) product
+									
+									GROUP BY product.id
+									ORDER BY product.dateTime DESC");
+				}
+				else
+				{
+					$sth = $dbh->query("SELECT id, name, cost, image, dateTime
 
 								FROM (
 								SELECT p.id, p.name, p.image, pp.cost, pp.dateTime
@@ -51,7 +78,7 @@
 								
 								GROUP BY product.id
 								ORDER BY product.dateTime DESC");
-	
+				}
 				$sth->setFetchMode(PDO::FETCH_ASSOC);
 				?>
 				<tbody>

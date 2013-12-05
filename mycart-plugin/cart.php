@@ -55,7 +55,6 @@
 				
 				// populate page with products stored in the order array if the quantity has been changed will update with new amount
 				$row = $sth->fetch();
-				
 
 				//total for each row
 				$rowTot = $row['cost'] * $item[1];

@@ -34,7 +34,7 @@
 					<a href="home.php" class="btn btn-info"><span class="fa fa-home"></span> Home</a>
 					<a href="products.php" class="btn btn-info"><span class="fa fa-pencil"></span> Products</a>
 					<a href="categories.php" class="btn btn-info"><span class="fa fa-list-ol"></span> Categories</a>
-					<a href="shipping.php" class="btn btn-info"><i class="fa fa-truck"></i> Shipping Rates</a>
+					<!-- <a href="shipping.php" class="btn btn-info"><i class="fa fa-truck"></i> Shipping Rates</a> -->
 					<a href="orders.php" class="btn btn-info"><span class="fa fa-list"></span> Orders</a>
 				</div>
 				<div class="nav-customize">
