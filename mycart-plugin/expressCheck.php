@@ -47,9 +47,9 @@
 		    * @var array
 		    */
 		   protected $_credentials = array(
-		      'USER' => 'm.aisthorpe_api1.hotmail.com',
-		      'PWD' => '2ESHNURLXSQU9QB5',
-		      'SIGNATURE' => 'AiCAfoNQf.dz-cC0imJvHGuLYB3PAZuun9nZUutjmhLrCi2PpPmNAKvw',
+		      'USER' => '',
+		      'PWD' => '',
+		      'SIGNATURE' => '',
 		   );
 		
 		   /**

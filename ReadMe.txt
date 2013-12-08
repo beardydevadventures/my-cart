@@ -9,11 +9,14 @@
                                         *   *
 
 /*** Hi There ***/
-Thankyou for downloading my-cart. The fruitation of an idea on one cold dark night then developed between two universaty students slaving over their computers for two trimesters.
+My cart is the fruitation of an idea on one cold dark night then developed between two universaty students slaving over their computers in dark rooms only illuminated by their computer screens for two trimesters.
 
+/*** Note ***/
+
+My cart does it purchasing processes with the use of paypal. In order to use this plugin you will have to sign up to paypal and make a merchant account. Which can be done at www.paypal.com further down in the installation process we will ask for some details to be entered into mycart.
 
 /*** Installing mycart ***/
-To install mycart you need to do the following.
+To install My cart you need to do the following.
 
 1. Download the mycart-plugin.zip files
 
@@ -36,7 +39,23 @@ To install mycart you need to do the following.
 
 	- www.examplesite.com/mcinstall.php
 
-5. On your websites shop page paste the following in the header.
+5. Set up paypal
+
+	1. Get you API live details from https://developer.paypal.com/webapps/developer/docs/classic/api/apiCredentials/
+	2. Open the expresscheck.php and success.php in the mycart-plugin folder
+	3. Look for the follwing section: (expresscheck.php: Line 40) (success.php: Line 21)
+ 
+		protected $_credentials = array(
+			'USER' => '',
+				
+			'PWD' => '',
+				
+			'SIGNATURE' => '', 
+		);
+
+	4. Enter your api details into the following between the ''
+
+6. On your websites shop page paste the following in the header.
 
 	<!-- jquery -->
 	(Only paste this if you do not have jquery on your site)
@@ -74,40 +93,18 @@ To install mycart you need to do the following.
 	<!-- mycart js-->
 	<script type="text/javascript" src="mycart-plugin/js/mycart.js"></script>
 
-6. On your website shop page paste the following where you would like the users cart to show
+7. On your website shop page paste the following where you would like the users cart to show
 
 	<!-- ============ mycart-plugin CART ============ -->
 			
 	<div class="mycart-plugin mycart-plugin-cart"></div>
 
-7. On your website shop page paste the following where you would like your store to show
+8. On your website shop page paste the following where you would like your store to show
 
 	<!-- ============ mycart-plugin STORE ============ -->
 	
 	<div class="mycart-plugin mycart-plugin-store"></div>
 
-8. And your done navigate to the mcadmin.php file to start adding your products and make some money
+9. And your done! Navigate to the mcadmin.php file to start adding your products and make some money
 
 	- www.examplesite.com/mcadmin.php
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
