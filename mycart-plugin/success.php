@@ -20,8 +20,8 @@
 		*/
 		protected $_credentials = array(
 				'USER' => '',
-				'PWD' => '',
-				'SIGNATURE' => '',
+		      'PWD' => '',
+		      'SIGNATURE' => '',
 		);
 	
 		/**

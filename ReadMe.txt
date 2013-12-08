@@ -47,9 +47,7 @@ To install My cart you need to do the following.
  
 		protected $_credentials = array(
 			'USER' => '',
-				
-			'PWD' => '',
-				
+			'PWD' => '',	
 			'SIGNATURE' => '', 
 		);
 
@@ -60,51 +58,39 @@ To install My cart you need to do the following.
 	<!-- jquery -->
 	(Only paste this if you do not have jquery on your site)
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-
-	
 	
 	<!-- mycart-plugin styling -->
-	
 	<link rel="stylesheet" type="text/css" href="mycart-plugin/css/font-awesome.css">
-	
 	<link rel="stylesheet" type="text/css" href="mycart-plugin/css/store.css"/>
-	
 	<link rel="stylesheet" type="text/css" href="mycart-plugin/css/customize.php"/>
-
-	
 	
 	<!-- mycart-plugin fancybox libraries -->
-	
 	<link rel="stylesheet" href="mycart-plugin/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-	
 	<script type="text/javascript" src="mycart-plugin/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-	
-	<style type="text/css">
-		
-		.fancybox-custom .fancybox-skin {
-			
-			box-shadow: 0 0 50px #222;
-		
+	<style type="text/css">	
+		.fancybox-custom .fancybox-skin {		
+			box-shadow: 0 0 50px #222;	
 		}
-	
 	</style>
-	
 	
 	<!-- mycart js-->
 	<script type="text/javascript" src="mycart-plugin/js/mycart.js"></script>
 
 7. On your website shop page paste the following where you would like the users cart to show
 
-	<!-- ============ mycart-plugin CART ============ -->
-			
+	<!-- ============ mycart-plugin CART ============ -->		
 	<div class="mycart-plugin mycart-plugin-cart"></div>
 
 8. On your website shop page paste the following where you would like your store to show
 
 	<!-- ============ mycart-plugin STORE ============ -->
-	
 	<div class="mycart-plugin mycart-plugin-store"></div>
 
-9. And your done! Navigate to the mcadmin.php file to start adding your products and make some money
+9. Delete unnessecary files (MAKE SURE YOU BELETE THESE!!!)
+	- mcinstall.php
+	- mycart-plugin/installer.php
+	
+10. And your done! Navigate to the mcadmin.php file to start adding your products and make some money
 
 	- www.examplesite.com/mcadmin.php
+	

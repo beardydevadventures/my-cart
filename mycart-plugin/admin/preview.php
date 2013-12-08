@@ -8,7 +8,7 @@
 			</div><!-- end page-heading clear-fix -->
 			<h4>Preview your online store below</h4>
 			<div class="iframe-container">
-				<iframe src="../../index.php" class="iframe"></iframe>
+				<iframe src="../../" class="iframe"></iframe>
 			</div>
 		</div><!-- end wrapper -->
 	</div><!-- end body-content -->
